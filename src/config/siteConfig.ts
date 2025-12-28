@@ -6,9 +6,9 @@ import { fontConfig } from "./fontConfig";
 const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
-	title: "Firefly",
-	subtitle: "Demo site",
-	site_url: "https://firefly.cuteleaf.cn",
+	title: "洛璃 Blog",
+	subtitle: "FireFly",
+	site_url: "https://blog.cialo.site",
 	description:
 		"Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
 	keywords: [
@@ -31,10 +31,13 @@ export const siteConfig: SiteConfig = {
 
 	favicon: [
 		// 留空以使用默认 favicon
+		// {
+		//   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
+		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
+		//   sizes: '32x32',              // 可选，图标大小
+		// }
 		{
-			src: "/assets/images/favicon.ico", // 图标文件路径
-			theme: "light", // 可选，指定主题 'light' | 'dark'
-			sizes: "32x32", // 可选，图标大小
+			src: "/favicon/default.png",
 		},
 	],
 
@@ -48,11 +51,11 @@ export const siteConfig: SiteConfig = {
 		value: "/assets/images/LiuYingPure3.svg",
 		alt: "🍀",
 	},
-	navbarTitle: "Firefly", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
+	navbarTitle: "FireFly", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 	navbarWidthFull: false, // 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
 
 	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2025-01-01", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
+	siteStartDate: "2025-11-24", // 请修改为你的站点实际开始日期，格式：YYYY-MM-DD
 
 	// bangumi配置
 	bangumi: {
@@ -63,7 +66,7 @@ export const siteConfig: SiteConfig = {
 	showLastModified: true,
 
 	// 文章过期阈值（天数），超过此天数才显示"上次编辑"卡片
-	outdatedThreshold: 30,
+	outdatedThreshold: 365,
 
 	// OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	generateOgImages: false,
@@ -106,7 +109,7 @@ export const siteConfig: SiteConfig = {
 		// 背景图片配置
 		src: {
 			// 桌面背景图片
-			desktop: "/assets/images/d1.webp",
+			desktop: "/assets/images/135490046_p0.png",
 			// 移动背景图片
 			mobile: "/assets/images/m3.webp",
 		},

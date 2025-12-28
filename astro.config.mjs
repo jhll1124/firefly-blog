@@ -35,7 +35,13 @@ import rehypeFigure from "./src/plugins/rehype-figure.mjs";
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
-
+	server: {
+		host: '0.0.0.0', // 允许所有IP访问
+		allowedHosts: ['cialo.site', 'localhost'] // 允许的域名列表
+	},
+	devToolbar: {
+		enabled: false
+	},
 	base: "/",
 	trailingSlash: "always",
 	integrations: [

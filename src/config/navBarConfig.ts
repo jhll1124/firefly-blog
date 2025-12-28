@@ -37,6 +37,15 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 	links.push(LinkPreset.Friends);
 
+
+	links.push(
+		{
+			name: "秋星曜野，桂月垂光",
+			url: "https://ba.cialo.site",
+			external: true,
+		}
+	);
+
 	// 根据配置决定是否添加留言板页面
 	if (siteConfig.pages.guestbook) {
 		links.push(LinkPreset.Guestbook);

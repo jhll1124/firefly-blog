@@ -4,9 +4,9 @@ export const profileConfig: ProfileConfig = {
 	// 头像
 	avatar: "/assets/images/avatar.webp",
 	// 名字
-	name: "Firefly",
+	name: "洛璃",
 	// 个人签名
-	bio: "Hello, I'm Firefly.",
+	bio: "The departure of early spring that means the curtain call of elannesiana.",
 
 	// 链接配置
 	// 已经预装的图标集：fa6-brands，fa6-regular，fa6-solid，material-symbols，simple-icons
@@ -18,26 +18,55 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/38932988",
-			showName: false,
+			url: "https://space.bilibili.com/477982361",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/CuteLeaf",
-			showName: false,
+			url: "https://github.com/jhll1124",
+		},
+		{
+			name: "Discord",
+			icon: "fa6-brands:discord",
+			url: "https://discord.com/users/1000050069019578568",
 		},
 		{
 			name: "Email",
 			icon: "fa6-solid:envelope",
-			url: "mailto:xiaye@msn.com",
+			url: "mailto:loliri1124@gmail.com",
 			showName: false,
 		},
 		{
-			name: "RSS",
-			icon: "fa6-solid:rss",
-			url: "/rss/",
-			showName: false,
+			name: "Steam",
+			icon: "fa6-brands:steam",
+			url: "https://steamcommunity.com/id/jhll1124/",
 		},
+		// {
+		// 	name: "Zhihu",
+		// 	icon: "fa6-brands:zhihu",
+		// 	url: "https://www.zhihu.com/people/25-64-54-38-62",
+		// },
+		// {
+		// 	name: "Pixiv",
+		// 	icon: "fa6-brands:pixiv",
+		// 	url: "https://www.pixiv.net/users/70434848/bookmarks/artworks",
+		// },
+		// {
+		// 	name: "bsky",
+		// 	icon: "fa6-brands:bluesky",
+		// 	url: "https://jhll1124.vtubers.social/",
+		// },
+		// {
+		// 	name: "Twitter",
+		// 	icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
+		// 	// You will need to install the corresponding icon set if it's not already included
+		// 	// `pnpm add @iconify-json/<icon-set-name>`
+		// 	url: "https://x.com/jhll1124",
+		// },
+		// {
+		// 	name: "YouTube",
+		// 	icon: "fa6-brands:youtube",
+		// 	url: "https://www.youtube.com/@jhll1124",
+		// },
 	],
 };
