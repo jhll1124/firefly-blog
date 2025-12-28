@@ -2,7 +2,7 @@
 export const fontConfig = {
 	enable: true, // 启用自定义字体功能
 	preload: true, // 预加载字体文件以提高性能
-	selected: ["system"], // 当前选择的字体，支持多个字体组合
+	selected: ["LXGW-WenKai-Screen", "system"], // 当前选择的字体，支持多个字体组合
 	fonts: {
 		// 系统字体
 		system: {
@@ -18,6 +18,14 @@ export const fontConfig = {
 			name: "Zen Maru Gothic",
 			src: "https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap",
 			family: "Zen Maru Gothic",
+			display: "swap" as const,
+		},
+		// LXGW WenKai Screen
+		"LXGW-WenKai-Screen": {
+			id: "LXGW-WenKai-Screen",
+			name: "LXGW WenKai Screen",
+			src: "https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.6.0/style.min.css",
+			family: "LXGW WenKai Screen",
 			display: "swap" as const,
 		},
 		// Google Fonts - Inter

@@ -10,8 +10,11 @@ export const siteConfig: SiteConfig = {
 	subtitle: "FireFly",
 	site_url: "https://blog.cialo.site",
 	description:
-		"Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
+		"Hi there, it's Loli 诶嘿，这里是洛璃 _( ᗜ ‸ ᗜ )_",
 	keywords: [
+		"FireFly",
+		"Blog",
+		"loli",
 		"Firefly",
 		"Fuwari",
 		"Astro",
@@ -74,9 +77,9 @@ export const siteConfig: SiteConfig = {
 	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404
 	// bangumi的数据为编译时获取的，所以不是实时数据，请配置bangumi.userId
 	pages: {
-		sponsor: true, // 赞助页面开关
-		guestbook: true, // 留言板页面开关，需要配置评论系统
-		bangumi: true, // 番组计划页面开关，含追番和游戏，dev调试时只获取一页数据，build才会获取全部数据
+		sponsor: false, // 赞助页面开关
+		guestbook: false, // 留言板页面开关，需要配置评论系统
+		bangumi: false, // 番组计划页面开关，含追番和游戏，dev调试时只获取一页数据，build才会获取全部数据
 	},
 
 	// 文章列表布局配置
@@ -97,7 +100,7 @@ export const siteConfig: SiteConfig = {
 	// 分页配置
 	pagination: {
 		// 每页显示的文章数量
-		postsPerPage: 10,
+		postsPerPage: 8,
 	},
 
 	backgroundWallpaper: {
