@@ -144,7 +144,7 @@
   </div>
   <div class="profile">
     <h1 class="hi">Hi there, it's Loli</h1>
-    <div class="sub">诶嘿，这里是洛璃 _( ᗜ ‸ ᗜ )_</div>
+    <div class="sub">呜嘿~这里是洛璃 _( ᗜ ‸ ᗜ )_</div>
     <div class="section-title">home</div>
     <div class="meta-row">
       <div class="badge"><span class="icon">📍</span> Ciallo <strong
