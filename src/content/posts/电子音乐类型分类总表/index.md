@@ -3,7 +3,6 @@ title: 电子音乐类型分类总表
 published: 2025-04-19
 updated: 2025-04-19
 description: "电子音乐类型分类总表"
-image: "./124164399_p0.png"
 tags: [music, edm, electronic, 电音]
 category: "music"
 draft: false

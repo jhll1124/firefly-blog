@@ -82,15 +82,11 @@ GNOME 功能性缩放（Functional Scaling）可能无法工作：
 
 ::github{repo="Bill-Haku/kawaii-gcc"}
 
-下载 [zh-kawaii.mo](https://github.com/Bill-Haku/kawaii-gcc/releases/download/v0.6.0/zh-kawaii.mo) 文件
+下载 [zh-kawaii.mo](https://github.com/Bill-Haku/kawaii-gcc/releases/latest/) 文件
+
+> v0.6.0 缓存：[zh-kawaii.mo](/object-storage/zh-kawaii.mo)
 
 重命名为 `gcc-14.mo` 后放到 `/usr/share/locale/zh_CN/LC_MESSAGES/`
-
----
-
-## 性能模式（Performance Mode）
-
-（保持占位，可按你的系统补充）
 
 ---
 

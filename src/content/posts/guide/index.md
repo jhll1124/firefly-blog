@@ -1,10 +1,10 @@
 ---
-title: Fuwari 简易指南
-published: 2024-04-01
-updated: 2025-11-16
+title: Firefly 简易指南
+published: 2025-12-29
+updated: 2025-12-29
 description: "如何使用这个博客模板。"
 image: "./cover.jpeg"
-tags: [Fuwari, Blogging, blog, markdown, md, 个性化, 指南, 博客]
+tags: [Fuwari, Blogging, blog, markdown, guide, firefly, md, 个性化, 指南, 博客]
 category: misc
 draft: false
 ---
@@ -13,31 +13,37 @@ draft: false
 
 此博客模板基于 [Astro](https://astro.build/) 构建。若本指南未提及某些内容，你可在 [Astro Docs](https://docs.astro.build/) 中找到答案。
 
-## 文章的 Front-matter
+# 文章的 Front-matter
 
 ```yaml
 ---
-title: My First Blog Post
+title: 我的第一篇博客文章
 published: 2023-09-09
-description: This is the first post of my new Astro blog.
+description: 这是我新 Astro 博客的第一篇文章。
 image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
+tags: [前端, 开发]
+category: 前端开发
 draft: false
 ---
 ```
 
-| Attribute     | Description                                                                                                                                                            |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`       | 文章标题。                                                                                                                                                             |
-| `published`   | 文章发布日期。                                                                                                                                                         |
-| `description` | 文章的简短描述，会显示在首页。                                                                                                                                         |
-| `image`       | 文章封面图片路径。<br/>1. 以 `http://` 或 `https://` 开头：使用网络图片<br/>2. 以 `/` 开头：使用 `public` 目录中的图片<br/>3. 若无前缀：相对于当前 markdown 文件的路径 |
-| `tags`        | 文章标签。                                                                                                                                                             |
-| `category`    | 文章分类。                                                                                                                                                             |
-| `draft`       | 若标记为草稿，则不会显示该文章。                                                                                                                                       |
 
-## 文章文件应放置的位置
+| 属性          | 描述                                                                                                                                                                                                 |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`       | 文章标题。                                                                                                                                                                                          |
+| `published`   | 文章发布日期。                                                                                                                                                                                      |
+| `pinned`      | 是否将此文章置顶在文章列表顶部。                                                                                                                                                                    |
+| `description` | 文章的简短描述。显示在首页上。                                                                                                                                                                      |
+| `image`       | 文章封面图片路径。<br/>1. 以 `http://` 或 `https://` 开头：使用网络图片<br/>2. 以 `/` 开头：`public` 目录中的图片<br/>3. 不带任何前缀：相对于 markdown 文件的路径 |
+| `tags`        | 文章标签。                                                                                                                                                                                          |
+| `category`    | 文章分类。                                                                                                                                                                                          |
+| `licenseName` | 文章内容的许可证名称。                                                                                                                                                                              |
+| `author`      | 文章作者。                                                                                                                                                                                          |
+| `sourceLink`  | 文章内容的来源链接或参考。                                                                                                                                                                          |
+| `draft`       | 如果这篇文章仍是草稿，则不会显示。                                                                                                                                                                  |
+| `slug`        | 自定义文章 URL 路径。如果不设置，将使用文件名作为 URL。                                                                                                                                              |
+
+# 文章文件应放置的位置
 
 文章文件应放在 `src/content/posts/` 目录中。你也可以创建子目录来更好地组织文章及其资源。
 
@@ -49,7 +55,62 @@ src/content/posts/
     └── index.md
 ```
 
-## GitHub Repository Cards
+
+# 自定义文章 URL (Slug)
+
+## 什么是 Slug？
+
+Slug 是文章 URL 路径的自定义部分。如果不设置 slug，系统将使用文件名作为 URL。
+
+## Slug 使用示例
+
+### 示例 1：使用文件名作为 URL
+```yaml
+---
+title: 我的第一篇博客文章
+published: 2023-09-09
+---
+```
+文件：`src/content/posts/my-first-blog-post.md`
+URL：`/posts/my-first-blog-post`
+
+### 示例 2：自定义 Slug
+```yaml
+---
+title: 我的第一篇博客文章
+published: 2023-09-09
+slug: hello-world
+---
+```
+文件：`src/content/posts/my-first-blog-post.md`
+URL：`/posts/hello-world`
+
+### 示例 3：中文标题使用英文 Slug
+```yaml
+---
+title: 如何使用 Firefly 博客主题
+published: 2023-09-09
+slug: how-to-use-firefly-blog-theme
+---
+```
+文件：`src/content/posts/firefly-guide.md`
+URL：`/posts/how-to-use-firefly-blog-theme`
+
+## Slug 使用建议
+
+1. **使用英文和连字符**：`my-awesome-post` 而不是 `my awesome post`
+2. **保持简洁**：避免过长的 slug
+3. **具有描述性**：让 URL 能够反映文章内容
+4. **避免特殊字符**：只使用字母、数字和连字符
+5. **保持一致性**：在整个博客中使用相似的命名模式
+
+## 注意事项
+
+- Slug 一旦设置并发布，建议不要随意更改，以免影响 SEO 和已存在的链接
+- 如果多个文章使用相同的 slug，后面的文章会覆盖前面的
+- Slug 会自动转换为小写
+
+# GitHub Repository Cards
 
 你可以添加动态卡片来链接 GitHub 仓库，在页面加载时，仓库信息会从 GitHub API 拉取。
 
@@ -61,11 +122,11 @@ src/content/posts/
 ::github{repo="saicaca/fuwari"}
 ```
 
-## Admonitions
+# Admonitions
 
 支持以下类型的提示框：`note` `tip` `important` `warning` `caution`
 
-### Basic Syntax
+## Basic Syntax
 
 ```markdown
 :::note
@@ -77,7 +138,7 @@ src/content/posts/
 :::
 ```
 
-### Custom Titles
+## Custom Titles
 
 提示框的标题可以自定义。
 
@@ -87,7 +148,7 @@ src/content/posts/
 :::
 ```
 
-### GitHub Syntax
+## GitHub Syntax
 
 > [!TIP] > [GitHub 风格语法](https://github.com/orgs/community/discussions/16925) 同样被支持。
 
@@ -99,7 +160,7 @@ src/content/posts/
 > The GitHub syntax is also supported.
 ```
 
-### Spoiler
+## Spoiler
 
 你可以在文字中添加剧透隐藏区块。内容也支持 **Markdown** 语法。
 
@@ -109,21 +170,26 @@ The content :spoiler[is hidden **ayyy**]!
 The content :spoiler[is hidden **ayyy**]!
 ```
 
-## Expressive Code
+---
+
+# 代码块示例
 
 这里展示使用 [Expressive Code](https://expressive-code.com/) 时代码块的外观。以下示例基于官方文档，你可以参考文档获取更多信息。
 
-### Syntax Highlighting
+## 表达性代码
 
-[Syntax Highlighting](https://expressive-code.com/key-features/syntax-highlighting/)
+### 语法高亮
 
-#### Regular syntax highlighting
+[语法高亮](https://expressive-code.com/key-features/syntax-highlighting/)
+
+#### 常规语法高亮
 
 ```js
-console.log("这段代码具有语法高亮效果！");
+console.log('此代码有语法高亮!')
 ```
 
-#### Rendering ANSI escape sequences
+#### 渲染 ANSI 转义序列
+
 
 ```ansi
 ANSI 颜色:
@@ -142,14 +208,14 @@ ANSI 颜色:
 文本格式: [1m加粗[0m [2m暗淡[0m [3m斜体[0m [4m下划线[0m
 ```
 
-### Editor & Terminal Frames
+### 编辑器和终端框架
 
-[Editor & Terminal Frames](https://expressive-code.com/key-features/frames/)
+[编辑器和终端框架](https://expressive-code.com/key-features/frames/)
 
-#### Code editor frames
+#### 代码编辑器框架
 
 ```js title="my-test-file.js"
-console.log("标题属性示例");
+console.log('标题属性示例')
 ```
 
 ---
@@ -159,7 +225,7 @@ console.log("标题属性示例");
 <div>文件名注释示例</div>
 ```
 
-#### Terminal frames
+#### 终端框架
 
 ```bash
 echo "这个终端窗口没有标题"
@@ -171,7 +237,7 @@ echo "这个终端窗口没有标题"
 Write-Output "这个终端窗口有标题！"
 ```
 
-#### Overriding frame types
+#### 覆盖框架类型
 
 ```sh frame="none"
 echo "看，我没有外框！"
@@ -185,11 +251,11 @@ function Watch-Tail { Get-Content -Tail 20 -Wait $args }
 New-Alias tail Watch-Tail
 ```
 
-### Text & Line Markers
+### 文本和行标记
 
-[Text & Line Markers](https://expressive-code.com/key-features/text-markers/)
+[文本和行标记](https://expressive-code.com/key-features/text-markers/)
 
-#### Marking full lines & line ranges
+#### 标记整行和行范围
 
 ```js {1, 4, 7-8}
 // 行 1 - 由行号标记
@@ -202,7 +268,7 @@ New-Alias tail Watch-Tail
 // 行 8 - 由范围 "7-8" 标记
 ```
 
-#### Selecting line marker types (mark, ins, del)
+#### 选择行标记类型 (mark, ins, del)
 
 ```js title="line-markers.js" del={2} ins={3-4} {6}
 function demo() {
@@ -214,7 +280,7 @@ function demo() {
 }
 ```
 
-#### Adding labels to line markers
+#### 为行标记添加标签
 
 ```jsx {"1":5} del={"2":7-8} ins={"3":10-12}
 // labeled-line-markers.jsx
@@ -232,7 +298,7 @@ function demo() {
 </button>
 ```
 
-#### Adding long labels on their own lines
+#### 在单独行上添加长标签
 
 ```jsx {"1. 在这里提供 value 属性:":5-6} del={"2. 移除 disabled 和 active 状态:":8-10} ins={"3. 添加此内容以在按钮中渲染 children:":12-15}
 // labeled-line-markers.jsx
@@ -250,7 +316,7 @@ function demo() {
 </button>
 ```
 
-#### Using diff-like syntax
+#### 使用类似 diff 的语法
 
 ```diff
 +这行将被标记为插入
@@ -269,7 +335,7 @@ function demo() {
  不会移除任何空白字符
 ```
 
-#### Combining syntax highlighting with diff-like syntax
+#### 结合语法高亮和类似 diff 的语法
 
 ```diff lang="js"
   function thisIsJavaScript() {
@@ -280,7 +346,7 @@ function demo() {
   }
 ```
 
-#### Marking individual text inside lines
+#### 标记行内的单独文本
 
 ```js "given text"
 function demo() {
@@ -289,19 +355,19 @@ function demo() {
 }
 ```
 
-#### Regular expressions
+#### 正则表达式
 
 ```ts /ye[sp]/
 console.log("单词 yes 和 yep 会被标记。");
 ```
 
-#### Escaping forward slashes
+#### 转义正斜杠
 
 ```sh //ho.*//
 echo "Test" > /home/test.txt
 ```
 
-#### Selecting inline marker types (mark, ins, del)
+#### 选择内联标记类型 (mark, ins, del)
 
 ```js "return true;" ins="inserted" del="deleted"
 function demo() {
@@ -311,11 +377,11 @@ function demo() {
 }
 ```
 
-### Word Wrap
+### 自动换行
 
-[Word Wrap](https://expressive-code.com/key-features/word-wrap/)
+[自动换行](https://expressive-code.com/key-features/word-wrap/)
 
-#### Configuring word wrap per block
+#### 为每个块配置自动换行
 
 ```js wrap
 // wrap 示例
@@ -333,7 +399,7 @@ function getLongString() {
 }
 ```
 
-#### Configuring indentation of wrapped lines
+#### 配置换行的缩进
 
 ```js wrap preserveIndent
 // preserveIndent 示例（默认启用）
@@ -351,12 +417,12 @@ function getLongString() {
 }
 ```
 
-## Collapsible Sections
+## 可折叠部分
 
-[Collapsible Sections](https://expressive-code.com/plugins/collapsible-sections/)
+[可折叠部分](https://expressive-code.com/plugins/collapsible-sections/)
 
 ```js collapse={1-5, 12-14, 21-24}
-// 下方这些样板代码将被折�
+// 下方这些样板设置代码将被折叠
 import { someBoilerplateEngine } from "@example/some-boilerplate";
 import { evenMoreBoilerplate } from "@example/even-more-boilerplate";
 
@@ -376,17 +442,17 @@ function calcFn() {
   return c;
 }
 
-// 以下内容将再次折�
+// 直到块末尾的所有代码将再次被折叠
 engine.closeConnection();
 engine.freeMemory();
 engine.shutdown({ reason: "样板代码示例结束" });
 ```
 
-## Line Numbers
+## 行号
 
-[Line Numbers](https://expressive-code.com/plugins/line-numbers/)
+[行号](https://expressive-code.com/plugins/line-numbers/)
 
-### Displaying line numbers per block
+### 为每个块显示行号
 
 ```js showLineNumbers
 // 此代码块将显示行号
@@ -400,7 +466,7 @@ console.log("有人吗？");
 console.log("呃，我在第几行？");
 ```
 
-### Changing the starting line number
+### 更改起始行号
 
 ```js showLineNumbers startLineNumber=5
 console.log("来自第 5 行的问候！");

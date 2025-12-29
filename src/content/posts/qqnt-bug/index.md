@@ -43,7 +43,7 @@ draft: false
 </div>
 ```
 
-<video controls><source src="/assets/senren.mp4" type="video/mp4"></video>
+<video controls><source src="/object-storage/senren.mp4" type="video/mp4"></video>
 
 **效果**: 点击按钮后会尝试调用 Steam 协议，启动千恋＊万花
 
@@ -71,7 +71,7 @@ draft: false
 
 ![all](all.png)
 ![clipboard](clipboard.png)
-<video controls><source src="/assets/all.mp4" type="video/mp4"></video>
+<video controls><source src="/object-storage/all.mp4" type="video/mp4"></video>
 
 ### 用户代理信息获取
 
