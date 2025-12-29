@@ -140,7 +140,7 @@
 </style>
 <div class="about-wrap">
   <div class="avatar">
-    <img src="/assets/images/136675725_p0.png" alt="avatar">
+    <img src="/assets/images/avatar.jpg" alt="avatar">
   </div>
   <div class="profile">
     <h1 class="hi">Hi there, it's Loli</h1>
