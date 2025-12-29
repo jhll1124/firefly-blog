@@ -6,7 +6,7 @@ export const profileConfig: ProfileConfig = {
 	// 名字
 	name: "洛璃",
 	// 个人签名
-	bio: "The departure of early spring that means the curtain call of elannesiana.",
+	bio: "若每个「再见」都是未完成式…那我们的对白，就注定是首永远押着韵的十四行诗呀♪",
 
 	// 链接配置
 	// 已经预装的图标集：fa6-brands，fa6-regular，fa6-solid，material-symbols，simple-icons

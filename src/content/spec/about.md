@@ -143,8 +143,9 @@
     <img src="/assets/images/avatar.jpg" alt="avatar">
   </div>
   <div class="profile">
-    <h1 class="hi">Hi there, it's Loli</h1>
+    <h1 class="hi">Hi there, it's Loli~</h1>
     <div class="sub">呜嘿~这里是洛璃 _( ᗜ ‸ ᗜ )_</div>
+    <div>若每个「再见」都是未完成式…那我们的对白，就注定是首永远押着韵的十四行诗呀♪</div>
     <div class="section-title">home</div>
     <div class="meta-row">
       <div class="badge"><span class="icon">📍</span> Ciallo <strong

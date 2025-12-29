@@ -132,6 +132,7 @@ export const siteConfig: SiteConfig = {
 				// 主页横幅副标题
 				subtitle: [
 					"May This Journey Lead Us Starward",
+					"The departure of early spring that means the curtain call of elannesiana.",
 					"Upon Lighted Fyrefly, I Soon Gaze",
 					"In Reddened Chrysalis, I Once Rest",
 					"From Shattered Sky, I Free Fall",
