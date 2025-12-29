@@ -13,8 +13,7 @@ description: "欢迎各位大佬来找我玩"
 站点名称: 洛璃 Blog
 站点描述: 若每个「再见」都是未完成式…那我们的对白，就注定是首永远押着韵的十四行诗呀♪
 站点链接: https://blog.cialo.site
-头像链接: https://blog.cialo.site/favicon/default.png
-
+头像链接: https://blog.cialo.site/assets/images/avatar.jpg
 ```
 
 ## ⚠️ 注意事项 
