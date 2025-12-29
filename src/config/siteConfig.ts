@@ -112,7 +112,7 @@ export const siteConfig: SiteConfig = {
 		// 背景图片配置
 		src: {
 			// 桌面背景图片
-			desktop: "/assets/images/135490046_p0.png",
+			desktop: "/assets/images/138948765_p0.png",
 			// 移动背景图片
 			mobile: "/assets/images/m3.webp",
 		},
@@ -128,13 +128,14 @@ export const siteConfig: SiteConfig = {
 				// 主页显示自定义文本（全局开关）
 				enable: true,
 				// 主页横幅主标题
-				title: "Firefly!",
+				title: "Stella forward",
 				// 主页横幅副标题
 				subtitle: [
+					"May This Journey Lead Us Starward",
+					"Upon Lighted Fyrefly, I Soon Gaze",
 					"In Reddened Chrysalis, I Once Rest",
 					"From Shattered Sky, I Free Fall",
 					"Amidst Silenced Stars, I Deep Sleep",
-					"Upon Lighted Fyrefly, I Soon Gaze",
 					"From Undreamt Night, I Thence Shine",
 					"In Finalized Morrow, I Full Bloom",
 				],
@@ -153,11 +154,11 @@ export const siteConfig: SiteConfig = {
 					mobile: true, // 移动端显示横幅图片来源文本
 				},
 				text: {
-					desktop: "Pixiv - 晚晚喵", // 桌面端要显示的来源文本
+					desktop: "风堇 - 晚晚喵", // 桌面端要显示的来源文本
 					mobile: "Pixiv - KiraraShss", // 移动端要显示的来源文本
 				},
 				url: {
-					desktop: "https://www.pixiv.net/artworks/135490046", // 桌面端原始艺术品或艺术家页面的 URL 链接
+					desktop: "https://www.pixiv.net/artworks/138948765", // 桌面端原始艺术品或艺术家页面的 URL 链接
 					mobile: "https://www.pixiv.net/users/42715864", // 移动端原始艺术品或艺术家页面的 URL 链接
 				},
 			},
