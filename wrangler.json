@@ -1,0 +1,6 @@
+{
+	"name": "firefly-blog",
+	"assets": {
+		"directory": "./dist"
+	}
+}
