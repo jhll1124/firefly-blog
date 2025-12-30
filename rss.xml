@@ -420,7 +420,7 @@ console.log(&quot;我在第 6 行&quot;);
   &amp;lt;/button&amp;gt;
 &amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;lt;video controls&amp;gt;&amp;lt;source src=&quot;/object-storage/senren.mp4&quot; type=&quot;video/mp4&quot;&amp;gt;&amp;lt;/video&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;video controls&amp;gt;&amp;lt;source src=&quot;https://r2.cialo.site/senren.mp4&quot; type=&quot;video/mp4&quot;&amp;gt;&amp;lt;/video&amp;gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;效果&lt;/strong&gt;: 点击按钮后会尝试调用 Steam 协议，启动千恋＊万花&lt;/p&gt;
 &lt;h2&gt;修改窗口标题&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;title&amp;gt;系统信息检测&amp;lt;/title&amp;gt;
@@ -435,7 +435,7 @@ console.log(&quot;我在第 6 行&quot;);
 &lt;p&gt;&lt;strong&gt;效果图&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;all.png&quot; alt=&quot;all&quot; /&gt;
 &lt;img src=&quot;clipboard.png&quot; alt=&quot;clipboard&quot; /&gt;
-&amp;lt;video controls&amp;gt;&amp;lt;source src=&quot;/object-storage/all.mp4&quot; type=&quot;video/mp4&quot;&amp;gt;&amp;lt;/video&amp;gt;&lt;/p&gt;
+&amp;lt;video controls&amp;gt;&amp;lt;source src=&quot;https://r2.cialo.site/all.mp4&quot; type=&quot;video/mp4&quot;&amp;gt;&amp;lt;/video&amp;gt;&lt;/p&gt;
 &lt;h3&gt;用户代理信息获取&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
   &amp;lt;button
@@ -2007,7 +2007,7 @@ GNOME 功能性缩放（Functional Scaling）可能无法工作：
 &lt;p&gt;::github{repo=&quot;Bill-Haku/kawaii-gcc&quot;}&lt;/p&gt;
 &lt;p&gt;下载 &lt;a href=&quot;https://github.com/Bill-Haku/kawaii-gcc/releases/latest/&quot;&gt;zh-kawaii.mo&lt;/a&gt; 文件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;/object-storage/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;https://r2.cialo.site/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;重命名为 &lt;code&gt;gcc-14.mo&lt;/code&gt; 后放到 &lt;code&gt;/usr/share/locale/zh_CN/LC_MESSAGES/&lt;/code&gt;&lt;/p&gt;
 &lt;hr /&gt;
@@ -2047,7 +2047,7 @@ pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop
 &lt;p&gt;::github{repo=&quot;Bill-Haku/kawaii-gcc&quot;}&lt;/p&gt;
 &lt;p&gt;下载 &lt;a href=&quot;https://github.com/Bill-Haku/kawaii-gcc/releases/latest/&quot;&gt;zh-kawaii.mo&lt;/a&gt; 文件&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;/object-storage/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;https://r2.cialo.site/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;重命名为 &lt;code&gt;gcc.mo&lt;/code&gt; 后放到 &lt;code&gt;/usr/share/locale/zh_CN/LC_MESSAGES/&lt;/code&gt;&lt;/p&gt;
 &lt;hr /&gt;
