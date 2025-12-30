@@ -1,5 +1,5 @@
 {
 	"assets": {
 		"directory": "./dist"
-	}
+	},"name": "firefly-blog"
 }
