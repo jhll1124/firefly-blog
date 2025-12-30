@@ -52,7 +52,7 @@ locale-gen
 
 下载 [zh-kawaii.mo](https://github.com/Bill-Haku/kawaii-gcc/releases/latest/) 文件
 
-> v0.6.0 缓存：[zh-kawaii.mo](/object-storage/zh-kawaii.mo)
+> v0.6.0 缓存：[zh-kawaii.mo](https://r2.cialo.site/zh-kawaii.mo)
 
 重命名为 `gcc.mo` 后放到 `/usr/share/locale/zh_CN/LC_MESSAGES/`
 
