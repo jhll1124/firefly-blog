@@ -6,10 +6,11 @@ description: "KMS Activate"
 image: "./cover.jpg"
 tags: [kms, 激活, activate]
 category: "server"
+sourceLink: "https://moe.best/kms.html"
 draft: false
 ---
 
-Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=55295716 "「碎裂の音符」/「Twiska」[pixiv]")
+Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/artworks/55295716"「碎裂の音符」/「Twiska」[pixiv]")
 
 # KMS
 
@@ -17,7 +18,7 @@ Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/mem
 
 每次激活成功的有效期是  `180天`，之后系统每  `7天`\* 会自动联网激活续期，只要你有网而且本站的 KMS 服务器没宕
 
-- 默认情况下自动续期间隔为 7 天，但该值可由 KMS 服务提供者自定义，本站 KMS 服务自动续期间隔为 90 天
+\* 默认情况下自动续期间隔为 7 天，但该值可由 KMS 服务提供者自定义，本站 KMS 服务自动续期间隔为 90 天
 
 KMS 服务器地址：
 
@@ -68,7 +69,7 @@ KMS 服务器地址：
 本 KMS 服务依赖于 vlmcsd 以及 dakkidaze 的一键脚本
 ::github{repo="Wind4/vlmcsd"}
 ::github{repo="dakkidaze/one-key-kms"}
-另外还要感谢  [Office Tool Plus](https://otp.landian.vip/ "Office Tool Plus")  为我们带来的各种便利~
+另外还要感谢 [Office Tool Plus](https://otp.landian.vip/ "Office Tool Plus") 为我们带来的各种便利~
 
 ## 原文
 

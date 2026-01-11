@@ -2,8 +2,9 @@
 title: Firefly 布局系统详解
 published: 2026-01-11
 description: 深入了解 Firefly 的布局系统，包括侧边栏布局（左侧/双侧）和文章列表布局（列表/网格），以及为什么双侧边栏与网格模式会冲突的技术原理。
-image: "./grid.webp"
+image: "./firefly.webp"
 tags: [Firefly, Fuwari, Blogging, blog, markdown, guide, md, 个性化, 指南, 博客, 布局]
+sourceLink: "https://firefly.cuteleaf.cn/posts/firefly-layout-system/"
 category: misc
 draft: false
 ---
@@ -158,7 +159,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 export const siteConfig: SiteConfig = {
   postListLayout: {
     defaultMode: "list", // 列表模式
-    allowSwitch: true,   // 允许用户切换
+    allowSwitch: true, // 允许用户切换
   },
 };
 ```
@@ -187,6 +188,7 @@ export const siteConfig: SiteConfig = {
 - ✅ 视觉冲击力强，封面图吸引眼球
 
 #### 瀑布流布局结构
+
 Firefly 的网格模式内置了智能瀑布流布局支持，解决了网格布局中因图文混合文章导致的卡片高度不一致导致的空白问题。
 
 ![瀑布流布局](./masonry.webp)
@@ -214,9 +216,9 @@ Firefly 的网格模式内置了智能瀑布流布局支持，解决了网格布
 export const siteConfig: SiteConfig = {
   postListLayout: {
     defaultMode: "grid", // 网格模式
-    allowSwitch: true,   // 允许用户切换
+    allowSwitch: true, // 允许用户切换
     grid: {
-      masonry: true,     // 开启瀑布流布局
+      masonry: true, // 开启瀑布流布局
     },
   },
 };
@@ -423,7 +425,6 @@ export const siteConfig: SiteConfig = {
   <text x="470" y="105" text-anchor="middle" font-size="12" fill="#666">750px</text>
   <text x="470" y="125" text-anchor="middle" font-size="11" fill="#388e3c">宽度充足</text>
 
-  
   <!-- 箭头指示 -->
   <path d="M 270 180 L 270 195" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowgreen2)"/>
   <path d="M 470 180 L 470 195" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowgreen2)"/>
@@ -447,24 +448,22 @@ export const siteConfig: SiteConfig = {
 // 检测布局冲突
 function canUseGridLayout(): boolean {
   const { position } = sidebarLayoutConfig;
-  
+
   // 如果启用了双侧边栏，禁用网格模式
   if (position === "both") {
     return false;
   }
-  
   return true;
 }
 
 // 自动修正布局
 function getActualLayoutMode(): "list" | "grid" {
   const { defaultMode } = siteConfig.postListLayout;
-  
+
   if (defaultMode === "grid" && !canUseGridLayout()) {
     console.warn("网格模式与双侧边栏冲突，已自动切换为列表模式");
     return "list";
   }
-  
   return defaultMode;
 }
 ```
@@ -473,8 +472,8 @@ function getActualLayoutMode(): "list" | "grid" {
 
 ```typescript
 // 双侧边栏时，隐藏布局切换按钮
-const showLayoutSwitch = 
-  siteConfig.postListLayout.allowSwitch && 
+const showLayoutSwitch =
+  siteConfig.postListLayout.allowSwitch &&
   sidebarLayoutConfig.position !== "both";
 ```
 
@@ -484,17 +483,17 @@ const showLayoutSwitch =
 
 #### ✅ 推荐组合
 
-| 侧边栏模式 | 文章列表模式 | 推荐度 | 适用场景 |
-|-----------|------------|--------|---------|
-| 左侧边栏   | 列表模式    | ⭐⭐⭐⭐⭐ | 传统博客风格，视觉效果好 |
-| 左侧边栏   | 网格模式    | ⭐⭐⭐⭐⭐ | 快速浏览，信息密集 |
-| 双侧边栏   | 列表模式    | ⭐⭐⭐⭐  | 宽屏显示，信息丰富 |
+| 侧边栏模式 | 文章列表模式 | 推荐度     | 适用场景                 |
+| ---------- | ------------ | ---------- | ------------------------ |
+| 左侧边栏   | 列表模式     | ⭐⭐⭐⭐⭐ | 传统博客风格，视觉效果好 |
+| 左侧边栏   | 网格模式     | ⭐⭐⭐⭐⭐ | 快速浏览，信息密集       |
+| 双侧边栏   | 列表模式     | ⭐⭐⭐⭐   | 宽屏显示，信息丰富       |
 
 #### ❌ 不推荐/不支持组合
 
-| 侧边栏模式 | 文章列表模式 | 推荐度 | 原因 |
-|-----------|------------|--------|------|
-| 双侧边栏   | 网格模式    | ❌ 禁止 | 主内容区域过窄，体验差 |
+| 侧边栏模式 | 文章列表模式 | 推荐度  | 原因                   |
+| ---------- | ------------ | ------- | ---------------------- |
+| 双侧边栏   | 网格模式     | ❌ 禁止 | 主内容区域过窄，体验差 |
 
 ---
 
@@ -506,12 +505,12 @@ Firefly 的布局系统具有智能的响应式设计，会根据屏幕尺寸自
 
 Firefly 使用 Tailwind CSS 标准断点：
 
-| 断点名称 | 屏幕宽度 | 设备类型 |
-|---------|---------|---------|
-| Mobile  | < 768px | 手机 |
-| Tablet  | 768px - 1023px | 平板 |
-| Desktop | ≥ 1024px | 桌面 |
-| Wide Desktop | ≥ 1200px | 宽屏桌面 |
+| 断点名称     | 屏幕宽度       | 设备类型 |
+| ------------ | -------------- | -------- |
+| Mobile       | < 768px        | 手机     |
+| Tablet       | 768px - 1023px | 平板     |
+| Desktop      | ≥ 1024px       | 桌面     |
+| Wide Desktop | ≥ 1200px       | 宽屏桌面 |
 
 ### 4.2 侧边栏响应式规则
 
@@ -550,8 +549,8 @@ Firefly 使用 Tailwind CSS 标准断点：
 
 ```typescript
 // 推荐：左侧边栏 + 列表模式
-position: "left"
-defaultMode: "list"
+position: "left";
+defaultMode: "list";
 ```
 
 **原因**：列表模式可以展示精美的封面图，突出视觉效果。
@@ -560,12 +559,12 @@ defaultMode: "list"
 
 ```typescript
 // 方案1：左侧边栏 + 网格模式
-position: "left"
-defaultMode: "grid"
+position: "left";
+defaultMode: "grid";
 
 // 方案2：双侧边栏 + 列表模式
-position: "both"
-defaultMode: "list"
+position: "both";
+defaultMode: "list";
 ```
 
 **原因**：技术博客文章多，网格模式便于快速查找；或使用双侧边栏展示更多分类和标签。
@@ -574,8 +573,8 @@ defaultMode: "list"
 
 ```typescript
 // 推荐：左侧边栏 + 列表模式
-position: "left"
-defaultMode: "list"
+position: "left";
+defaultMode: "list";
 ```
 
 **原因**：突出内容，营造亲切感。
@@ -590,10 +589,8 @@ defaultMode: "list"
 
 1. 侧边栏是否配置为双侧边栏（`position: "both"`）？
    - 如果是，网格模式会被自动禁用
-   
 2. 屏幕宽度是否小于 1200px？
    - 网格模式仅在宽屏桌面端生效
-
 3. 浏览器是否缓存了旧的设置？
    - 清除 localStorage 中的布局偏好
 
