@@ -1,10 +1,10 @@
 ---
 title: Firefly 简易指南
 published: 2025-12-29
-updated: 2025-12-29
+updated: 2026-01-11
 description: "如何使用这个博客模板。"
 image: "./cover.jpeg"
-tags: [Fuwari, Blogging, blog, markdown, guide, firefly, md, 个性化, 指南, 博客]
+tags: [Fuwari, Blogging, blog, markdown, guide, Firefly, md, 个性化, 指南, 博客]
 category: misc
 draft: false
 ---
@@ -27,54 +27,27 @@ draft: false
 ---
 ```
 
-
-| 属性          | 描述                                                                                                                                                                                                 |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`       | 文章标题。                                                                                                                                                                                          |
-| `published`   | 文章发布日期。                                                                                                                                                                                      |
-| `pinned`      | 是否将此文章置顶在文章列表顶部。                                                                                                                                                                    |
-| `description` | 文章的简短描述。显示在首页上。                                                                                                                                                                      |
+| 属性          | 描述                                                                                                                                                              |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | 文章标题。                                                                                                                                                        |
+| `published`   | 文章发布日期。                                                                                                                                                    |
+| `pinned`      | 是否将此文章置顶在文章列表顶部。                                                                                                                                  |
+| `description` | 文章的简短描述。显示在首页上。                                                                                                                                    |
 | `image`       | 文章封面图片路径。<br/>1. 以 `http://` 或 `https://` 开头：使用网络图片<br/>2. 以 `/` 开头：`public` 目录中的图片<br/>3. 不带任何前缀：相对于 markdown 文件的路径 |
-| `tags`        | 文章标签。                                                                                                                                                                                          |
-| `category`    | 文章分类。                                                                                                                                                                                          |
-| `licenseName` | 文章内容的许可证名称。                                                                                                                                                                              |
-| `author`      | 文章作者。                                                                                                                                                                                          |
-| `sourceLink`  | 文章内容的来源链接或参考。                                                                                                                                                                          |
-| `draft`       | 如果这篇文章仍是草稿，则不会显示。                                                                                                                                                                  |
-| `slug`        | 自定义文章 URL 路径。如果不设置，将使用文件名作为 URL。                                                                                                                                              |
+| `tags`        | 文章标签。                                                                                                                                                        |
+| `category`    | 文章分类。                                                                                                                                                        |
+| `licenseName` | 文章内容的许可证名称。                                                                                                                                            |
+| `author`      | 文章作者。                                                                                                                                                        |
+| `sourceLink`  | 文章内容的来源链接或参考。                                                                                                                                        |
+| `draft`       | 如果这篇文章仍是草稿，则不会显示。                                                                                                                                |
+| `slug`        | 自定义文章 URL 路径。如果不设置，将使用文件名作为 URL。                                                                                                           |
 
-# 文章文件应放置的位置
-
-文章文件应放在 `src/content/posts/` 目录中。你也可以创建子目录来更好地组织文章及其资源。
-
-```
-src/content/posts/
-├── post-1.md
-└── post-2/
-    ├── cover.png
-    └── index.md
-```
-
-
-# 自定义文章 URL (Slug)
-
-## 什么是 Slug？
+## 自定义文章 URL (Slug)
 
 Slug 是文章 URL 路径的自定义部分。如果不设置 slug，系统将使用文件名作为 URL。
 
-## Slug 使用示例
+### Slug 使用示例
 
-### 示例 1：使用文件名作为 URL
-```yaml
----
-title: 我的第一篇博客文章
-published: 2023-09-09
----
-```
-文件：`src/content/posts/my-first-blog-post.md`
-URL：`/posts/my-first-blog-post`
-
-### 示例 2：自定义 Slug
 ```yaml
 ---
 title: 我的第一篇博客文章
@@ -82,21 +55,11 @@ published: 2023-09-09
 slug: hello-world
 ---
 ```
+
 文件：`src/content/posts/my-first-blog-post.md`
 URL：`/posts/hello-world`
 
-### 示例 3：中文标题使用英文 Slug
-```yaml
----
-title: 如何使用 Firefly 博客主题
-published: 2023-09-09
-slug: how-to-use-firefly-blog-theme
----
-```
-文件：`src/content/posts/firefly-guide.md`
-URL：`/posts/how-to-use-firefly-blog-theme`
-
-## Slug 使用建议
+### Slug 使用建议
 
 1. **使用英文和连字符**：`my-awesome-post` 而不是 `my awesome post`
 2. **保持简洁**：避免过长的 slug
@@ -104,29 +67,49 @@ URL：`/posts/how-to-use-firefly-blog-theme`
 4. **避免特殊字符**：只使用字母、数字和连字符
 5. **保持一致性**：在整个博客中使用相似的命名模式
 
-## 注意事项
+### 注意事项
 
 - Slug 一旦设置并发布，建议不要随意更改，以免影响 SEO 和已存在的链接
 - 如果多个文章使用相同的 slug，后面的文章会覆盖前面的
 - Slug 会自动转换为小写
 
-# GitHub Repository Cards
+# GitHub 仓库卡片
 
-你可以添加动态卡片来链接 GitHub 仓库，在页面加载时，仓库信息会从 GitHub API 拉取。
+您可以添加链接到 GitHub 仓库的动态卡片，在页面加载时，仓库信息会从 GitHub API 获取。
 
-::github{repo="Fabrizz/MMM-OnSpotify"}
+::github{repo="CuteLeaf/Firefly"}
 
-使用代码 `::github{repo="<owner>/<repo>"}` 来创建一个 GitHub 仓库卡片。
+使用代码 `::github{repo="CuteLeaf/Firefly"}` 创建 GitHub 仓库卡片。
 
 ```markdown
-::github{repo="saicaca/fuwari"}
+::github{repo="CuteLeaf/Firefly"}
 ```
 
-# Admonitions
+# 提醒框
 
 支持以下类型的提示框：`note` `tip` `important` `warning` `caution`
 
-## Basic Syntax
+:::note
+突出显示用户应该考虑的信息，即使在快速浏览时也是如此。
+:::
+
+:::tip
+可选信息，帮助用户更成功。
+:::
+
+:::important
+用户成功所必需的关键信息。
+:::
+
+:::warning
+由于潜在风险需要用户立即注意的关键内容。
+:::
+
+:::caution
+行动的负面潜在后果。
+:::
+
+## 基本语法
 
 ```markdown
 :::note
@@ -138,36 +121,41 @@ URL：`/posts/how-to-use-firefly-blog-theme`
 :::
 ```
 
-## Custom Titles
+## 自定义标题
 
 提示框的标题可以自定义。
 
+:::note[我的自定义标题]
+这是一个带有自定义标题的 note。
+:::
+
 ```markdown
-:::note[MY CUSTOM TITLE]
+:::note[我的自定义标题]
 这是一个带有自定义标题的 note。
 :::
 ```
 
 ## GitHub Syntax
 
-> [!TIP] > [GitHub 风格语法](https://github.com/orgs/community/discussions/16925) 同样被支持。
+> [!TIP]
+> 也支持 [GitHub 语法](https://github.com/orgs/community/discussions/16925)。
 
 ```
 > [!NOTE]
-> The GitHub syntax is also supported.
+> 也支持 GitHub 语法。
 
 > [!TIP]
-> The GitHub syntax is also supported.
+> 也支持 GitHub 语法。
 ```
 
-## Spoiler
+## 剧透 Spoiler
 
 你可以在文字中添加剧透隐藏区块。内容也支持 **Markdown** 语法。
 
-The content :spoiler[is hidden **ayyy**]!
+The content :spoiler[is hidden **哈哈**]!
 
 ```markdown
-The content :spoiler[is hidden **ayyy**]!
+The content :spoiler[is hidden **哈哈**]!
 ```
 
 ---
@@ -185,11 +173,10 @@ The content :spoiler[is hidden **ayyy**]!
 #### 常规语法高亮
 
 ```js
-console.log('此代码有语法高亮!')
+console.log("此代码有语法高亮!");
 ```
 
 #### 渲染 ANSI 转义序列
-
 
 ```ansi
 ANSI 颜色:
@@ -215,7 +202,7 @@ ANSI 颜色:
 #### 代码编辑器框架
 
 ```js title="my-test-file.js"
-console.log('标题属性示例')
+console.log("标题属性示例");
 ```
 
 ---
@@ -471,4 +458,257 @@ console.log("呃，我在第几行？");
 ```js showLineNumbers startLineNumber=5
 console.log("来自第 5 行的问候！");
 console.log("我在第 6 行");
+```
+
+# KaTeX 数学公式示例
+
+## 行内公式 (Inline)
+
+行内公式使用单个 `$` 符号包裹。
+
+例如：欧拉公式 $e^{i\pi} + 1 = 0$ 是数学中最优美的公式之一。
+
+质能方程 $E = mc^2$ 也是家喻户晓。
+
+## 块级公式 (Block)
+
+块级公式使用两个 `$$` 符号包裹，会居中显示。
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+## 复杂示例
+
+### 矩阵 (Matrices)
+
+$$
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+\alpha & \beta \\
+\gamma & \delta
+\end{pmatrix} =
+\begin{pmatrix}
+a\alpha + b\gamma & a\beta + b\delta \\
+c\alpha + d\gamma & c\beta + d\delta
+\end{pmatrix}
+$$
+
+### 极限与求和 (Limits and Sums)
+
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$
+
+$$
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+$$
+
+### 麦克斯韦方程组 (Maxwell's Equations)
+
+$$
+\begin{aligned}
+\nabla \cdot \mathbf{E} &= \frac{\rho}{\varepsilon_0} \\
+\nabla \cdot \mathbf{B} &= 0 \\
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} &= \mu_0\mathbf{J} + \mu_0\varepsilon_0\frac{\partial \mathbf{E}}{\partial t}
+\end{aligned}
+$$
+
+### 化学方程式 (Chemical Equations)
+
+$$
+\ce{CH4 + 2O2 -> CO2 + 2H2O}
+$$
+
+## 更多符号
+
+| 符号        | 代码          | 渲染结果      |
+| :---------- | :------------ | :------------ |
+| Alpha       | `\alpha`      | $\alpha$      |
+| Beta        | `\beta`       | $\beta$       |
+| Gamma       | `\Gamma`      | $\Gamma$      |
+| Pi          | `\pi`         | $\pi$         |
+| Infinity    | `\infty`      | $\infty$      |
+| Right Arrow | `\rightarrow` | $\rightarrow$ |
+| Partial     | `\partial`    | $\partial$    |
+
+更多 KaTeX 语法请参考 [KaTeX Supported Functions](https://katex.org/docs/supported.html)。
+
+# Markdown 中 Mermaid 图表完整指南
+
+## 流程图示例
+
+流程图非常适合表示流程或算法步骤。
+
+```mermaid
+graph TD
+    A[开始] --> B{条件检查}
+    B -->|是| C[处理步骤 1]
+    B -->|否| D[处理步骤 2]
+    C --> E[子过程]
+    D --> E
+    subgraph E [子过程详情]
+        E1[子步骤 1] --> E2[子步骤 2]
+        E2 --> E3[子步骤 3]
+    end
+    E --> F{另一个决策}
+    F -->|选项 1| G[结果 1]
+    F -->|选项 2| H[结果 2]
+    F -->|选项 3| I[结果 3]
+    G --> J[结束]
+    H --> J
+    I --> J
+```
+
+## 时序图示例
+
+时序图显示对象之间随时间的交互。
+
+```mermaid
+sequenceDiagram
+    participant User as 用户
+    participant WebApp as 网页应用
+    participant Server as 服务器
+    participant Database as 数据库
+
+    User->>WebApp: 提交登录请求
+    WebApp->>Server: 发送认证请求
+    Server->>Database: 查询用户凭据
+    Database-->>Server: 返回用户数据
+    Server-->>WebApp: 返回认证结果
+
+    alt 认证成功
+        WebApp->>User: 显示欢迎页面
+        WebApp->>Server: 请求用户数据
+        Server->>Database: 获取用户偏好
+        Database-->>Server: 返回偏好设置
+        Server-->>WebApp: 返回用户数据
+        WebApp->>User: 加载个性化界面
+    else 认证失败
+        WebApp->>User: 显示错误消息
+        WebApp->>User: 提示重新输入
+    end
+```
+
+## 甘特图示例
+
+甘特图非常适合显示项目进度和时间线。
+
+```mermaid
+gantt
+    title 网站开发项目时间线
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+
+    section 设计阶段
+    需求分析      :a1, 2023-10-01, 7d
+    UI设计                 :a2, after a1, 10d
+    原型创建        :a3, after a2, 5d
+
+    section 开发阶段
+    前端开发      :b1, 2023-10-20, 15d
+    后端开发       :b2, after a2, 18d
+    数据库设计           :b3, after a1, 12d
+
+    section 测试阶段
+    单元测试              :c1, after b1, 8d
+    集成测试       :c2, after b2, 10d
+    用户验收测试   :c3, after c2, 7d
+
+    section 部署
+    生产环境部署     :d1, after c3, 3d
+    发布                    :milestone, after d1, 0d
+```
+
+## 类图示例
+
+类图显示系统的静态结构，包括类、属性、方法及其关系。
+
+```mermaid
+classDiagram
+    class User {
+        +String username
+        +String password
+        +String email
+        +Boolean active
+        +login()
+        +logout()
+        +updateProfile()
+    }
+
+    class Article {
+        +String title
+        +String content
+        +Date publishDate
+        +Boolean published
+        +publish()
+        +edit()
+        +delete()
+    }
+
+    class Comment {
+        +String content
+        +Date commentDate
+        +addComment()
+        +deleteComment()
+    }
+
+    class Category {
+        +String name
+        +String description
+        +addArticle()
+        +removeArticle()
+    }
+
+    User "1" -- "*" Article : 写作
+    User "1" -- "*" Comment : 发表
+    Article "1" -- "*" Comment : 拥有
+    Article "1" -- "*" Category : 属于
+```
+
+## 状态图示例
+
+状态图显示对象在其生命周期中经历的状态序列。
+
+```mermaid
+stateDiagram-v2
+    [*] --> 草稿
+
+    草稿 --> 审核中 : 提交
+    审核中 --> 草稿 : 拒绝
+    审核中 --> 已批准 : 批准
+    已批准 --> 已发布 : 发布
+    已发布 --> 已归档 : 归档
+    已发布 --> 草稿 : 撤回
+
+    state 已发布 {
+        [*] --> 活跃
+        活跃 --> 隐藏 : 临时隐藏
+        隐藏 --> 活跃 : 恢复
+        活跃 --> [*]
+        隐藏 --> [*]
+    }
+
+    已归档 --> [*]
+```
+
+## 饼图示例
+
+饼图非常适合显示比例和百分比数据。
+
+```mermaid
+pie title 网站流量来源分析
+    "搜索引擎" : 45.6
+    "直接访问" : 30.1
+    "社交媒体" : 15.3
+    "推荐链接" : 6.4
+    "其他来源" : 2.6
 ```

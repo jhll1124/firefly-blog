@@ -25,16 +25,20 @@ draft: false
 :::
 
 **成功率最高: 97.3% / 90.2%**
+
 - https://dns64.dns.google/dns-query
 - 8.8.8.8
 
 **QPS 最高: 160.19**
+
 - https://dns.alidns.com/dns-query
 
 **平均延迟最低: 10ms**
+
 - 156.154.71.2
 
 **综合表现最好: 95.62**
+
 - 114.114.115.115
 
 ## 指标分析
@@ -42,6 +46,7 @@ draft: false
 在这些指标中，**QPS (每秒查询数) 是最重要的**。为什么不选延迟最低的 156.154.71.2? 因为延迟指标波动极大，多次测试结果差异明显，参考价值有限。相比之下，QPS 是稳定的性能指标，直接反映 DNS 服务器的处理能力。
 
 综合考虑:
+
 1. **QPS** - 硬指标，决定实际性能
 2. **综合表现** - 平衡多个维度
 3. **成功率** - 保证可用性
@@ -50,44 +55,48 @@ draft: false
 # 最终配置
 
 ## default-nameserver
+
 ```yaml
 default-nameserver:
-  - '114.114.115.115'
-  - '8.8.8.8'
-  - '1.1.1.1'
-  - '8.8.4.4'
+  - "114.114.115.115"
+  - "8.8.8.8"
+  - "1.1.1.1"
+  - "8.8.4.4"
 ```
 
 用于解析 DoH/DoT 服务器的域名(如 `dns.alidns.com`)，必须使用纯 IP 格式的 DNS。
 
 ## nameserver (主 DNS 列表)
+
 ```yaml
 nameserver:
-  - 'https://dns.alidns.com/dns-query'
-  - '114.114.115.115'
-  - 'https://dns64.dns.google/dns-query'
-  - '8.8.8.8'
+  - "https://dns.alidns.com/dns-query"
+  - "114.114.115.115"
+  - "https://dns64.dns.google/dns-query"
+  - "8.8.8.8"
 ```
 
 **排序依据:**
+
 1. **阿里 DoH** - QPS 最高 (160.19)，国内访问稳定
 2. **114.114.115.115** - 综合表现最佳 (95.62)
 3. **Google DoH** - 成功率高 (97.3%)，备用
 4. **8.8.8.8** - 兜底
 
 ## proxy-server-nameserver
+
 ```yaml
 proxy-server-nameserver:
-    - 'https://dns.google/dns-query'
-    - 'https://dns64.dns.google/dns-query'
-    - '114.114.115.115'
-    - '8.8.8.8'
-    - '1.1.1.1'
-    - '8.8.4.4'
-    - 'https://unfiltered.adguard-dns.com/dns-query'
-    - 'https://dns.cloudflare.com/dns-query'
-    - 'https://cloudflare-dns.com/dns-query'
-    - 'https://1.1.1.1/dns-query'
+  - "https://dns.google/dns-query"
+  - "https://dns64.dns.google/dns-query"
+  - "114.114.115.115"
+  - "8.8.8.8"
+  - "1.1.1.1"
+  - "8.8.4.4"
+  - "https://unfiltered.adguard-dns.com/dns-query"
+  - "https://dns.cloudflare.com/dns-query"
+  - "https://cloudflare-dns.com/dns-query"
+  - "https://1.1.1.1/dns-query"
 ```
 
 专门用于解析代理订阅中的服务器域名，列表较全以确保连接稳定。
@@ -113,6 +122,7 @@ proxy-server-nameserver:
 我做了个极端测试: 将系统 DNS 设置为一个不存在的随机 IP。
 
 **结果:**
+
 - 所有直连网站无法访问 (DNS 解析失败)
 - 走代理的网站完全正常
 
@@ -125,6 +135,7 @@ proxy-server-nameserver:
 如果 DNS 在本机做，解析出 IP 后再连接，那只是流量转发，不是真正的代理。代理协议(如 VMess)必须把域名发给服务器处理。
 
 所以在配置 DNS 覆写时:
+
 - 本地 DNS 列表主要影响直连流量和 DoH 域名解析
 - 代理流量的 DNS 由代理服务器负责
 - fake-ip 让本地 DNS 的影响降到最低
