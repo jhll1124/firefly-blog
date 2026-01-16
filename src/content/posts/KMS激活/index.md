@@ -10,7 +10,7 @@ sourceLink: "https://moe.best/kms.html"
 draft: false
 ---
 
-Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/artworks/55295716"「碎裂の音符」/「Twiska」[pixiv]")
+Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/artworks/55295716)
 
 # KMS
 

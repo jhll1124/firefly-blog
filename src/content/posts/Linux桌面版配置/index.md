@@ -1,7 +1,7 @@
 ---
 title: Linux 桌面版配置
-published: 2025-11-16
-updated: 2025-12-27
+published: 2026-01-16
+updated: 2026-01-16
 description: "本页记录 Arch Linux 安装后的常用软件、桌面环境配置、fish shell、美化与系统优化设置。"
 image: ""
 tags: [desktop, linux, 系统配置]
@@ -31,7 +31,76 @@ sudo pacman -S btop gdb pypy pypy3 audacious wine steam gedit mongohud neofetch 
 双系统环境下请确保关闭 Windows 快速启动功能，避免文件系统冲突。
 :::
 
-（根据需要补充你的 grub.cfg 或 `/etc/default/grub` 配置）
+配置文件位置：`/etc/default/grub`
+
+### 默认启动项
+
+```conf
+GRUB_DEFAULT=2
+```
+
+表示默认启动菜单中的第 **3** 个条目（从 0 开始计数）。这种方式适合**固定启动目标**的场景，如果系统结构长期稳定，这是最简单直接的做法。
+
+### 启动菜单与倒计时
+
+```conf
+GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=3
+```
+
+- `menu`：始终显示菜单
+- `3` 秒：在可见前提下尽量缩短等待时间
+
+相比 `hidden`，这种方式在多系统或调试内核时更安全，不会因为误判按键时机而错过菜单。
+
+### 发行版标识
+
+```conf
+GRUB_DISTRIBUTOR='Manjaro'
+```
+
+用于生成菜单项标题，对功能无影响，仅影响显示文本。
+
+### 内核启动参数
+
+```conf
+GRUB_CMDLINE_LINUX_DEFAULT='udev.log_priority=3'
+GRUB_CMDLINE_LINUX=""
+```
+
+刻意**不使用** `quiet` / `splash`，使启动过程可见，方便定位卡顿或硬件初始化问题
+
+### 分区表支持
+
+```conf
+GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+```
+
+同时预加载 GPT 与 MBR 模块，避免异常情况。这是一个**低成本但高稳定性**的设置。
+
+### 图形模式
+
+```conf
+GRUB_GFXMODE=auto
+```
+
+由 GRUB 自动选择分辨率。
+
+### 主题设置
+
+```conf
+GRUB_THEME="/usr/share/grub/themes/Cerydra_cn/theme.txt"
+```
+
+使用自定义主题 `Cerydra_cn`，主题本身不影响启动逻辑，只影响展示层。
+
+### OS 探测
+
+```conf
+GRUB_DISABLE_OS_PROBER=false
+```
+
+明确启用 `os-prober`，用于自动识别 Windows 和 Linux 发行版。在多系统环境中，这是**必须开启**的选项。
 
 ---
 
