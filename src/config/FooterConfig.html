@@ -7,10 +7,8 @@
         document.getElementById("fps").style.display = "none";
         return;
     }
-    
     let frameCount = 0;
     let lastTime = performance.now();
-    
     const fpsLevels = [
         { max: 5, text: '卡成ppt🤢', color: '#bd0000' },
         { max: 15, text: '电竞级帧率😖', color: 'red' },
@@ -19,35 +17,26 @@
         { max: 60, text: '还不错哦😁', color: '#08b7e4' },
         { max: Infinity, text: '十分流畅🤣', color: '#39c5bb' }
     ];
-    
     function getFPSLevel(fps) {
         return fpsLevels.find(level => fps <= level.max);
     }
-    
     function updateFPS() {
         const fpsEl = document.getElementById("fps");
-        
         // 检查元素是否还在DOM中且没有被清空
         if (!fpsEl || !document.body.contains(fpsEl)) {
             return; // 元素被移除，停止更新
         }
-        
         const now = performance.now();
         frameCount++;
-        
         if (now >= lastTime + 1000) {
             const fps = Math.round((frameCount * 1000) / (now - lastTime));
             const level = getFPSLevel(fps);
-            
             fpsEl.innerHTML = `FPS:${fps} <span style="color:${level.color}">${level.text}</span>`;
-            
             frameCount = 0;
             lastTime = now;
         }
-        
         requestAnimationFrame(updateFPS);
     }
-    
     updateFPS();
 })();
 </script>

@@ -30,22 +30,22 @@ export const profileConfig: ProfileConfig = {
 			icon: "fa6-brands:discord",
 			url: "https://discord.com/users/1000050069019578568",
 		},
-		{
-			name: "Email",
-			icon: "fa6-solid:envelope",
-			url: "mailto:loliri1124@gmail.com",
-			showName: false,
-		},
+		// {
+		// 	name: "Email",
+		// 	icon: "fa6-solid:envelope",
+		// 	url: "mailto:loliri1124@gmail.com",
+		// 	showName: false,
+		// },
 		{
 			name: "Steam",
 			icon: "fa6-brands:steam",
 			url: "https://steamcommunity.com/id/jhll1124/",
 		},
-		// {
-		// 	name: "Zhihu",
-		// 	icon: "fa6-brands:zhihu",
-		// 	url: "https://www.zhihu.com/people/25-64-54-38-62",
-		// },
+		{
+			name: "Zhihu",
+			icon: "fa6-brands:zhihu",
+			url: "https://www.zhihu.com/people/25-64-54-38-62",
+		},
 		// {
 		// 	name: "Pixiv",
 		// 	icon: "fa6-brands:pixiv",
