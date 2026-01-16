@@ -4,6 +4,7 @@ published: 2025-12-29
 updated: 2026-01-11
 description: "如何使用这个博客模板。"
 image: "./cover.jpeg"
+pinned: true
 tags: [Fuwari, Blogging, blog, markdown, guide, Firefly, md, 个性化, 指南, 博客]
 category: misc
 draft: false

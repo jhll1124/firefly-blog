@@ -1,7 +1,7 @@
 ---
 title: KMS 激活
 published: 2025-11-16
-updated: 2025-11-16
+updated: 2026-01-16
 description: "KMS Activate"
 image: "./cover.jpg"
 tags: [kms, 激活, activate]
@@ -11,8 +11,6 @@ draft: false
 ---
 
 Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/artworks/55295716)
-
-# KMS
 
 只能激活**批量版**的 Windows 和 Office，如果不是请看对应说明
 
@@ -24,12 +22,12 @@ KMS 服务器地址：
 
 - kms.loli.best
 
-## 术语释义
+# 术语释义
 
 - 零售版，Retail，简写 RTL，或称 consumer edition
 - 批量版，Volume，简写 VOL 或 VL，或称 business edition
 
-## Windows
+# Windows
 
 1. 如果你的系统是**零售版**，请先到下方 KMS Client Setup Keys 处得到你的系统版本对应的 Key，并应用它以将系统转换成**批量版**
 
@@ -42,7 +40,7 @@ KMS 服务器地址：
    cscript slmgr.vbs /xpr
    ```
 
-## Office
+# Office
 
 由于不同版本的 Office 激活脚本所在路径不尽相同，如果你比较懒可以继续看后面的说明下载使用 OTP；如果不想下载额外的应用，可自行百度对应版本 Office 的 KMS 激活方式
 
@@ -54,7 +52,7 @@ KMS 服务器地址：
 4. 在「KMS 管理」的“KMS 主机”处输入  `kms.loli.best`，然后点击「保存设置」
 5. 点击「激活」
 
-## KMS Client Setup Keys
+# KMS Client Setup Keys
 
 注：密钥来源于微软官方  
 [密钥管理服务 (KMS) 客户端激活和产品密钥 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys)  
@@ -64,13 +62,13 @@ KMS 服务器地址：
 
 `cd C:\Windows\System32 cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX`
 
-## 鸣谢
+# 鸣谢
 
 本 KMS 服务依赖于 vlmcsd 以及 dakkidaze 的一键脚本
 ::github{repo="Wind4/vlmcsd"}
 ::github{repo="dakkidaze/one-key-kms"}
 另外还要感谢 [Office Tool Plus](https://otp.landian.vip/ "Office Tool Plus") 为我们带来的各种便利~
 
-## 原文
+# 原文
 
 本文章引用于[神代綺凛の随波逐流](https://moe.best/kms.html)

@@ -9,15 +9,13 @@ category: "server"
 draft: false
 ---
 
-# 服务器环境配置记录（Ubuntu）
-
-## 📋 概述
+# 📋 概述
 
 本文档记录了 Ubuntu 服务器环境的完整配置流程，包括系统初始化、软件安装、服务配置等步骤。
 
 ---
 
-## 🌐 中文语言环境配置
+# 🌐 中文语言环境配置
 
 ```bash
 # 安装中文语言包
@@ -32,9 +30,9 @@ echo 'export LANG=zh_CN.UTF-8' >> ~/.bashrc
 
 ---
 
-## ⚙️ 基础系统配置
+# ⚙️ 基础系统配置
 
-### APT 软件包管理
+## APT 软件包管理
 
 ```bash
 # 安装常用工具
@@ -50,7 +48,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt autoremove -y
 ```
 
-### 🔐 自动登录配置
+## 🔐 自动登录配置
 
 :::note
 修改系统服务文件启用自动登录功能。
@@ -65,7 +63,7 @@ ExecStart=-/sbin/agetty --autologin jhll1124 --noclear %I $TERM
 
 ---
 
-## 🔑 SSH 密钥认证配置
+# 🔑 SSH 密钥认证配置
 
 :::tip
 配置 SSH 公钥认证以提高安全性和便利性。
@@ -86,9 +84,9 @@ sudo systemctl restart ssh
 
 ---
 
-## 💾 存储配置
+# 💾 存储配置
 
-### 硬盘自动挂载
+## 硬盘自动挂载
 
 ```bash
 # 创建挂载点目录
@@ -111,9 +109,9 @@ tmpfs       /mnt/tmpfs       tmpfs      defaults,size=27G   0   0
 
 ---
 
-## 🐚 Shell 环境配置
+# 🐚 Shell 环境配置
 
-### Fish Shell 安装配置
+## Fish Shell 安装配置
 
 ```bash
 # 安装 Fish Shell
@@ -128,16 +126,16 @@ sudo passwd -d jhll1124
 
 ---
 
-## 🚫 服务优化与禁用
+# 🚫 服务优化与禁用
 
-### 禁用不必要的系统服务
+## 禁用不必要的系统服务
 
 ```bash
 sudo systemctl disable x11-common apache2 netplan-ovs-cleanup cryptdisks-early cryptdisks snapd.apparmor snapd.autoimport snapd.core-fixup snapd.failure snapd.recovery-chooser-trigger snapd.seeded snapd snapd.snap-repair snapd.system-shutdown
 sudo systemctl disable snapd.socket
 ```
 
-### 📊 日志系统优化
+## 📊 日志系统优化
 
 :::warning
 减少磁盘写入，延长 SSD 寿命。
@@ -158,7 +156,7 @@ sudo rm -rf /var/log/journal
 
 ---
 
-## 📁 Server 目录准备
+# 📁 Server 目录准备
 
 ```bash
 # 创建服务目录结构
@@ -169,9 +167,9 @@ sudo chmod -R 775 /server
 
 ---
 
-## 🖼️ Python 图片服务 (RandPic)
+# 🖼️ Python 图片服务 (RandPic)
 
-### Systemd 服务配置
+## Systemd 服务配置
 
 创建 `/etc/systemd/system/randpic.service`：
 
@@ -198,9 +196,9 @@ sudo systemctl start randpic
 
 ---
 
-## 📝 博客服务 (Fuwari 框架)
+# 📝 博客服务 (Fuwari 框架)
 
-### 项目初始化
+## 项目初始化
 
 ```bash
 cd /server
@@ -209,7 +207,7 @@ cd Firefly
 pnpm install
 ```
 
-### 使用指令
+## 使用指令
 
 下列指令均需要在项目根目录执行：
 
@@ -223,9 +221,9 @@ pnpm install
 
 ---
 
-## 📁 文件列表服务 (Oplist)
+# 📁 文件列表服务 (Oplist)
 
-### 安装配置
+## 安装配置
 
 ```bash
 # 解压安装
@@ -236,7 +234,7 @@ sudo mv openlist /usr/local/bin/alist
 alist server
 ```
 
-### SSL 证书配置
+## SSL 证书配置
 
 编辑 `~/data/config.json`：
 
@@ -247,7 +245,7 @@ alist server
 }
 ```
 
-### Systemd 服务配置
+## Systemd 服务配置
 
 创建 `/etc/systemd/system/alist.service`：
 
@@ -276,9 +274,9 @@ sudo systemctl start alist
 
 ---
 
-## 🌐 Caddy Web 服务器配置
+# 🌐 Caddy Web 服务器配置
 
-### 安装
+## 安装
 
 ```bash
 sudo apt install caddy
@@ -295,7 +293,7 @@ sudo apt update
 sudo apt install caddy
 ```
 
-### 站点配置
+## 站点配置
 
 [Caddy 中文文档](https://caddyserver.com.cn/docs/caddyfile-tutorial) | [原文](https://caddyserver.com/docs/caddyfile-tutorial)
 
@@ -383,9 +381,9 @@ https://cialo.site:30721 {
 
 ---
 
-## 🔄 动态 DNS 服务 (DDNS-GO)
+# 🔄 动态 DNS 服务 (DDNS-GO)
 
-### 安装部署
+## 安装部署
 
 ```bash
 # 解压安装
@@ -398,16 +396,16 @@ sudo ddns-go -s install
 
 ---
 
-## 🔒 网络安全配置
+# 🔒 网络安全配置
 
-### V2Ray 代理服务
+## V2Ray 代理服务
 
 ```bash
 sudo apt install v2ray
 sudo cp /path2/config.json /etc/v2ray/config.json
 ```
 
-### mkcert SSL 证书信任
+## mkcert SSL 证书信任
 
 复制证书到 `/etc/ssl/certs` 或 `/usr/local/share/ca-certificates/` 并执行：
 
@@ -417,9 +415,9 @@ sudo update-ca-certificates --fresh
 
 ---
 
-## 🛠️ 系统维护
+# 🛠️ 系统维护
 
-### 重建 grub-efi
+## 重建 grub-efi
 
 ```bash
 # 重新安装 GRUB EFI
@@ -428,7 +426,7 @@ sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=
 sudo update-grub
 ```
 
-### 📦 系统备份与恢复
+## 📦 系统备份与恢复
 
 ```bash
 # 完整系统备份
@@ -444,9 +442,9 @@ sudo tar -xvpzf /path2/server-citlali.tar.gz -C /mount
 
 ---
 
-## ⚠️ 暂不使用服务
+# ⚠️ 暂不使用服务
 
-### 🌐 Nginx Web 服务器配置
+## 🌐 Nginx Web 服务器配置
 
 ```bash
 sudo apt install nginx
@@ -648,7 +646,7 @@ server {
 
 </details>
 
-### 📁 SMB 文件共享服务
+## 📁 SMB 文件共享服务
 
 > [!WARNING]
 > 当前暂不使用 SMB 服务，使用 Windows 自带 SMB 功能
@@ -678,7 +676,7 @@ SMB 配置文件 `/etc/samba/smb.conf` 内容：
    force user = smbuser
 ```
 
-### 🤖 QQ 机器人服务 (QBot/NapCat)
+## 🤖 QQ 机器人服务 (QBot/NapCat)
 
 > [!WARNING]
 > 当前暂不使用 QQ 机器人功能
@@ -700,7 +698,7 @@ WebUI 配置说明
 添加 WebSocket 客户端: [ws://localhost:2536/OneBotv11](ws://localhost:2536/OneBotv11)
 :::
 
-### 🐘 PHP 环境支持
+## 🐘 PHP 环境支持
 
 > [!WARNING]
 > 当前暂不使用 PHP 支持
@@ -721,7 +719,7 @@ sudo cp /path2/php.ini /etc/php/8.3/fpm/php.ini
 systemctl status php8.3-fpm
 ```
 
-## 📊 服务状态检查
+# 📊 服务状态检查
 
 配置完成后，使用以下命令验证服务状态：
 
