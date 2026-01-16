@@ -176,13 +176,17 @@
 
 # 🛠️ 关于本站
 
-本网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发，所有源代码采用 MIT 协议开源在 GitHub 上。
+本网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板。
+
+Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发，所有源代码采用 **MIT 协议** 开源在 GitHub 上。
+
+在本站的搭建过程中，我不仅作为使用者，也参与了 [Firefly](https://github.com/CuteLeaf/Firefly) 项目的部分代码贡献与改进，根据实际使用需求对部分功能与细节进行了适配和完善。
+
+*感谢你的来访！希望这里的内容能对你有所帮助！*
 
 ::github{repo="CuteLeaf/Firefly"}
 
 ::github{repo="saicaca/fuwari"}
-
-*感谢你的来访！希望在这里能找到对你有用的内容！*
 
 # 🔒 隐私政策
 
@@ -193,6 +197,6 @@
 * 用户偏好（如主题选择）保存在本地浏览器中。
 * 托管服务商可能保留标准访问日志（如 IP 地址、浏览器类型），但这并非本站主动收集。
 
-# 🎮 No Game No Life
+# 🎮 游戏人生
 
 ![Star Rail Info](https://sr-card.qiusyan.top/116153827?theme=auto&logo=28)
