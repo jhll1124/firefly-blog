@@ -9,6 +9,10 @@ category: "cve"
 draft: false
 ---
 
+:::note[声明]
+本文本分内容由 AI 撰写，请注意甄别。
+:::
+
 本文记录了在 QQNT PC 9.9.25-42744 版本中发现的一个 HTML/JavaScript 注入漏洞。该漏洞允许通过消息内容注入 HTML 元素和 JavaScript 代码，虽然执行上下文受限，但仍可能被用于社会工程学攻击。
 
 # 漏洞详情

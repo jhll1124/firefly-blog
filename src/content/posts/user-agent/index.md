@@ -134,12 +134,3 @@ Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/13
 ```
 Mozilla/5.0 (X11; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0
 ```
-
----
-
-# 💡 使用提示
-
-- **微信内置浏览器**：包含 `MicroMessenger` 标识和 `XWEB` 内核版本信息
-- **企业微信**：除微信特征外，还包含 `wxwork` 标识
-- **移动端 WebView**：通常包含 `wv` 标识（如 Android 系统 WebView 和微信 WebView）
-- **版本差异**：不同应用版本的 Chrome 内核版本可能不同，建议进行兼容性测试
