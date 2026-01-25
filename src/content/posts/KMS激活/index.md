@@ -5,6 +5,7 @@ updated: 2026-01-16
 description: "KMS Activate"
 image: "./cover.jpg"
 tags: [kms, 激活, activate]
+author: "神代綺凛"
 category: "server"
 sourceLink: "https://moe.best/kms.html"
 draft: false
