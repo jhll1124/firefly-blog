@@ -3,7 +3,7 @@ title: WSL 配置
 published: 2025-11-16
 updated: 2025-11-16
 description: "WSL 配置"
-image: ""
+image: "./OIP.webp"
 tags: [desktop, linux, 环境配置]
 category: "linux"
 draft: false

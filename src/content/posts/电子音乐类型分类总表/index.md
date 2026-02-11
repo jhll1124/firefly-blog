@@ -1,7 +1,7 @@
 ---
 title: 电子音乐类型分类总表
 published: 2025-04-19
-updated: 2025-04-19
+updated: 2026-02-11
 description: "电子音乐类型分类总表"
 tags: [music, edm, electronic, 电音]
 category: "music"
@@ -46,23 +46,24 @@ draft: false
 
 代表作品：Xanadu
 
-| 子类                         | 核心特征                            | 代表艺人/作品                                                   |
-| ---------------------------- | ----------------------------------- | --------------------------------------------------------------- |
-| Uplifting Trance（上升出神） | 史诗旋律，上升式能量（BPM 136-140） | Above & Beyond《Sun & Moon》, Armin van Buuren《Communication》 |
-| Psytrance（迷幻出神）        | 迷幻高频，快速节奏（BPM 140-150）   | Vini Vici《The Tribe》, Infected Mushroom《Becoming Insane》    |
+| 子类                         | 核心特征                            |
+| ---------------------------- | ----------------------------------- |
+| Uplifting Trance（上升出神） | 史诗旋律，上升式能量（BPM 136-140） |
+| Psytrance（迷幻出神）        | 迷幻高频，快速节奏（BPM 140-150）   |
 
 ---
 
 # 4. Phonk（放克音乐）
 
-| 子类                            | 核心特征                                                 | 代表艺人/作品                                             |
-| ------------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
-| Classic Phonk（经典脏核）       | Memphis Rap 采样 + 低保真鼓机，BPM 70-85                 | DJ Smokey《Smokin' Kills》, Soudiere《North Memphis》     |
-| ├── Drift Phonk（漂移脏核）     | 加速 BPM（95-110）+ 俄罗斯硬核合成器（受 Eurobeat 影响） | KORDHELL《Live Another Day》, DVRST《Close Eyes》         |
-| ├── Jazz Phonk（爵士脏核）      | 融合爵士萨克斯采样与陷阱节奏                             | Pharmacist《Motley Crew》, LOST《Jazz Is Dead》           |
-| ├── Nightcore Phonk（夜核脏核） | 二次元人声 + 超高速 BPM（140-160）                       | PlayaPhonk《Anime Phonk》, MC ORSEN《Tokyo Drift》        |
-| Wave Phonk（浪潮脏核）          | 氛围合成器铺底 + 忧郁旋律，强化情绪叙事                  | LXST CXNTURY《SOS》, HXVRMXN《NEON BLADE》                |
-| Industrial Phonk（工业脏核）    | 工业噪音 + 金属撞击声，极端失真处理                      | SXMPRA《COWBELL WARRIOR!》, GRAVECHILL《SLAUGHTER HOUSE》 |
+| 子类                                       | 核心特征          | 代表艺人/作品                                         |
+| ------------------------------------------ | ----------------- | ----------------------------------------------------- |
+| Drift Phonk（漂移系 / 主流基底）           | 有 swing / 连续   | SLAY! - Eternxlkz, Sea Of Problems - Glichery         |
+| Brazilian Phonk（巴西系 / 节奏文化导向）   | Funk Carioca 语法 | Montagem Miau - Lenar, Montagem Nada, PASSO BEM SOLTO |
+| Krush / Krushfunk（冲压系 / 功能导向）     | 直线下砸          | †KRUSHDAFIGHT!† - N2UtheHartlocker, KRUSH BANDICOOT   |
+| Classic / OG Phonk（历史背景，不作为主流） | Hip-hop / lo-fi   | \_                                                    |
+
+> 在 2020 年代，“Phonk”一词被一种名为 “Drift Phonk” 的快节奏、大量使用牛铃的电子音乐子流派所挪用。因此，为了将其与在 TikTok 上爆红的潮流区分开来，最初的风格通常被追溯性地称为“OG Phonk”或“Rare Phonk”。  
+> 到 2023 年，“Phonk”一词的含义进一步被“巴西 Phonk”潮流所稀释。这种风格常被误称为 Funk Mandelão (或 "Bruxaria")，它是 Baile Funk 的一个独特子流派，以激烈的失真贝斯和重复的人声切片为特征。虽然这些曲目都带有 Phonk 的低保真失真效果，但它们在节奏和文化上与孟菲斯说唱截然不同。 “Phonk”这个标签的出现，很大程度上是为了在 Spotify 和 TikTok 等平台上进行算法优化，利用了这个词已有的流行度。<sup>[引自fandom wiki](https://aesthetics.fandom.com/wiki/Phonk)</sup>
 
 ---
 

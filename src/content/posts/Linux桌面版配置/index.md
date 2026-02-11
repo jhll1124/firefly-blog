@@ -3,7 +3,7 @@ title: Linux 桌面版配置
 published: 2026-01-16
 updated: 2026-01-16
 description: "本页记录 Arch Linux 安装后的系统设置，尤其是 grub。"
-image: ""
+image: "./Arch.svg"
 tags: [desktop, grub, linux, 系统配置]
 category: "linux"
 draft: false
@@ -24,20 +24,29 @@ draft: false
 ## 默认启动项
 
 ```conf
-GRUB_DEFAULT=2
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
 ```
 
-表示默认启动菜单中的第 **3** 个条目（从 0 开始计数）。这种方式适合**固定启动目标**的场景，如果系统结构长期稳定，这是最简单直接的做法。具体指定的是哪个启动项需要进入 grub 查看。
+用于指定默认启动的菜单项。其取值支持以下几种形式：
+
+- **数字索引**：从 0 开始计数，表示启动菜单中的第 N 项。
+- **菜单标题字符串**：使用与菜单中显示完全一致的标题文本进行匹配。
+- **`saved`**：配合 `GRUB_SAVEDEFAULT=true` 使用，GRUB 会把你上次选择的菜单项写入 `/boot/grub/grubenv`，表示默认启动上一次成功启动的条目。
+
+> 当使用数字索引时，实际对应的启动项取决于当前生成的 GRUB 菜单结构。  
+> 若存在子菜单，可使用 `"主菜单>子菜单"` 的层级形式进行精确指定。  
+> 该配置适用于固定或可预期的启动目标场景。若系统内核或菜单结构频繁变化，应注意索引方式可能因顺序调整而产生偏移。
 
 ## 启动菜单与倒计时
 
 ```conf
 GRUB_TIMEOUT_STYLE=menu
-GRUB_TIMEOUT=3
+GRUB_TIMEOUT=1
 ```
 
 - `menu`：始终显示菜单
-- `3` 秒：在可见前提下尽量缩短等待时间
+- 秒数：在可见前提下尽量缩短等待时间
 
 相比 `hidden`，这种方式在多系统或调试内核时更安全，不会因为误判按键时机而错过菜单。
 

@@ -3,7 +3,7 @@ title: 服务器配置（Ubuntu）
 published: 2025-11-16
 updated: 2025-12-28
 description: "本文记录 Ubuntu 服务器环境的初始化、常用软件安装、自动化服务配置等步骤。"
-image: ""
+image: "./ubuntu-certified.jpg"
 tags: [server, linux, 服务器, 环境配置]
 category: "server"
 draft: false
