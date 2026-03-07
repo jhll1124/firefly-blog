@@ -81,6 +81,12 @@ Mozilla/5.0 (Linux; U; Android 16; zh-cn; 2410DPN6CC Build/BP2A.250605.031.A3) A
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0
 ```
 
+## IE 模式
+
+```
+Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E) 
+```
+
 ## QQNT（Windows 9.9.25-42744）
 
 ```
