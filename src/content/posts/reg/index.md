@@ -20,10 +20,10 @@ draft: false
 
 ```reg
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\PCI\VEN_10DE&DEV_28E0&SUBSYS_35581043&REV_A1\4&9a8f73c&0&0008]
-"FriendlyName"="NVIDIA GeForce RTX 5090 StarRail Ver."
+"FriendlyName"="NVIDIA RTX PRO 6000 Blackwell Workstation Edition"
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\PCI\VEN_8086&DEV_A78B&SUBSYS_35581043&REV_04\3&11583659&0&10]
-"FriendlyName"="Intel(R) Arc(TM) B580 Graphics"
+"FriendlyName"="Intel Arc Graphics StarRail Ver."
 ```
 
 - **纯展示层修改**，影响：任务管理器，设备管理器
