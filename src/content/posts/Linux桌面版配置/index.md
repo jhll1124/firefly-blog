@@ -1,7 +1,7 @@
 ---
 title: Linux 桌面版配置
 published: 2026-01-16
-updated: 2026-01-16
+updated: 2026-04-18
 description: "本页记录 Arch Linux 安装后的系统设置，尤其是 grub。"
 image: "./Arch.svg"
 tags: [desktop, grub, linux, 系统配置]
@@ -190,7 +190,7 @@ curl https://raw.githubusvercontent.com/oh-my-fish/oh-my-fish/master/bin/install
 ## 自定义主题
 
 ```bash
-~/.local/share/omf/themes/
+cd ~/.local/share/omf/themes/
 git clone https://github.com/jhll1124/omf-theme ~/.local/share/omf/themes/omf-theme
 omf theme omf-theme
 ```
@@ -227,16 +227,4 @@ omf theme omf-theme
 
 ```bash
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
-```
-
----
-
-# 杂项（Notes）
-
-## fish + OMF（补充说明）
-
-```bash
-fish
-omf greetings
-# 用户信息位于 /etc/passwd
 ```
