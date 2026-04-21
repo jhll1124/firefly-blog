@@ -1,6 +1,7 @@
 ---
 title: Windows 注册表的一些个性化配置
 published: 2026-01-16
+updated: 2026-04-21
 description: 这篇文章用于完整记录并解释我在自己电脑上进行的一些 Windows 注册表自定义个性化配置
 image: "./2.png"
 tags: [windows, reg]
@@ -11,6 +12,23 @@ draft: false
 :::note
 本文不鼓励盲目照搬，只作为**思路展示与自用记录**。如若照抄后果自负。
 :::
+
+# DLSS 开发者选项 OSD
+
+![](osd.png)
+
+| ShowDlssIndicator 项目     | 配置                  |
+| -------------------------- | --------------------- |
+| 对所有的 DLSS 版本显示信息 | dword:00000400 (1024) |
+| 仅对 DLSS 调试版本显示信息 | dword:00000001        |
+| 始终不显示                 | dword:00000000        |
+
+```reg
+[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\NGXCore]
+"ShowDlssIndicator"=dword:00000001
+```
+
+---
 
 # 硬件 FriendlyName 自定义
 
