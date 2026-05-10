@@ -28,19 +28,19 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				name: "网站状态监控",
 				url: "https://stat.cialo.site/status/",
 				external: true,
-				icon: "fa6-brands:web-awesome",
+				icon: "fa7-brands:web-awesome",
 			},
 			{
 				name: "GitHub",
 				url: "https://github.com/CuteLeaf/Firefly",
 				external: true,
-				icon: "fa6-brands:github",
+				icon: "fa7-brands:github",
 			},
 			{
 				name: "秋星曜野，桂月垂光",
 				url: "https://ba.cialo.site",
 				external: true,
-				icon: "fa6-brands:bilibili",
+				icon: "fa7-brands:bilibili",
 			},
 		],
 	});

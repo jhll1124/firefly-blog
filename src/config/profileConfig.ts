@@ -22,17 +22,17 @@ export const profileConfig: ProfileConfig = {
 	links: [
 		{
 			name: "Bilibli",
-			icon: "fa6-brands:bilibili",
+			icon: "fa7-brands:bilibili",
 			url: "https://space.bilibili.com/477982361",
 		},
 		{
 			name: "GitHub",
-			icon: "fa6-brands:github",
+			icon: "fa7-brands:github",
 			url: "https://github.com/jhll1124",
 		},
 		{
 			name: "Discord",
-			icon: "fa6-brands:discord",
+			icon: "fa7-brands:discord",
 			url: "https://discord.com/users/1000050069019578568",
 		},
 		// {
@@ -43,34 +43,34 @@ export const profileConfig: ProfileConfig = {
 		// },
 		{
 			name: "Steam",
-			icon: "fa6-brands:steam",
+			icon: "fa7-brands:steam",
 			url: "https://steamcommunity.com/id/jhll1124/",
 		},
 		{
 			name: "Zhihu",
-			icon: "fa6-brands:zhihu",
+			icon: "fa7-brands:zhihu",
 			url: "https://www.zhihu.com/people/25-64-54-38-62",
 		},
 		// {
 		// 	name: "Pixiv",
-		// 	icon: "fa6-brands:pixiv",
+		// 	icon: "fa7-brands:pixiv",
 		// 	url: "https://www.pixiv.net/users/70434848/bookmarks/artworks",
 		// },
 		// {
 		// 	name: "bsky",
-		// 	icon: "fa6-brands:bluesky",
+		// 	icon: "fa7-brands:bluesky",
 		// 	url: "https://jhll1124.vtubers.social/",
 		// },
 		// {
 		// 	name: "Twitter",
-		// 	icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
+		// 	icon: "fa7-brands:twitter", // Visit https://icones.js.org/ for icon codes
 		// 	// You will need to install the corresponding icon set if it's not already included
 		// 	// `pnpm add @iconify-json/<icon-set-name>`
 		// 	url: "https://x.com/jhll1124",
 		// },
 		// {
 		// 	name: "YouTube",
-		// 	icon: "fa6-brands:youtube",
+		// 	icon: "fa7-brands:youtube",
 		// 	url: "https://www.youtube.com/@jhll1124",
 		// },
 	],
