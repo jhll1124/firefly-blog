@@ -21,6 +21,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:link",
 		children: [
 			{
+				name: "网站状态监控",
+				url: "https://stat.cialo.site/status/",
+				external: true,
+				icon: "fa6-brands:web-awesome",
+			},
+			{
 				name: "GitHub",
 				url: "https://github.com/CuteLeaf/Firefly",
 				external: true,
