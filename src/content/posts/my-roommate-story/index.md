@@ -3,7 +3,7 @@ title: 你的室友有多奇葩？？
 published: 2026-01-25
 description: "你的室友有多奇葩？？（转载/备份 知乎）"
 image: "./DDuO3c8VoAAMRKy.jpg"
-tags: [novel]
+tags: [novel, 故事, 大学生活, 男娘]
 author: "森活鱼块"
 category: "novel"
 sourceLink: "https://www.zhihu.com/question/270998165/answer/1964695193971299591"

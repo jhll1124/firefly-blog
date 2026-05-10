@@ -1,11 +1,11 @@
 ---
-title: QQNT 9.9.25 版本HTML注入XSS漏洞分析
+title: QQNT 9.9.25 版本 HTML 注入 XSS 漏洞分析
 published: 2025-11-30
-updated: 2025-11-30
+updated: 2026-05-10
 description: "本文记录了在 QQNT PC 9.9.25-42744 版本中发现的一个 HTML/JavaScript 注入漏洞。该漏洞允许通过消息内容注入 HTML 元素和 JavaScript 代码，虽然执行上下文受限，但仍可能被用于社会工程学攻击。"
 image: "./alert.png"
-tags: [qq, 注入, 漏洞分析, cve, xss]
-category: "cve"
+tags: [qq, security, inject, 漏洞分析, cve, xss]
+category: "security"
 draft: false
 ---
 

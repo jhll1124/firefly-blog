@@ -1,10 +1,11 @@
 ---
-title: HDR测试
+title: HDR 显示测试
 published: 2026-02-11
-description: "HDR 激发亮度测试"
+updated: 2026-05-10
+description: "HDR 激发亮度测试页面，检测设备是否支持 HDR 显示"
 image: "./icc.png"
-tags: [hdr, test]
-category: "misc"
+tags: [hdr, test, display]
+category: "test"
 sourceLink: "https://zyyme.com/hdr-test.html"
 draft: false
 ---

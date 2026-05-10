@@ -4,9 +4,9 @@ published: 2025-11-16
 updated: 2026-01-16
 description: "KMS Activate"
 image: "./cover.jpg"
-tags: [kms, 激活, activate]
+tags: [kms, tutorial, guide, 激活, activate]
 author: "神代綺凛"
-category: "server"
+category: "tutorial"
 sourceLink: "https://moe.best/kms.html"
 draft: false
 ---

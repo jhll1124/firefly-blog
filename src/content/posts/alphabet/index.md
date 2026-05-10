@@ -1,10 +1,11 @@
 ---
 title: 希腊字母表
 published: 2026-01-11
-description: "这里主要展示的是发音，其他内容参见维基百科"
+updated: 2026-05-10
+description: "希腊字母表及其英文名称和音标发音速查表"
 image: "./Greekalphabet.svg"
-tags: [alphabet]
-category: "misc"
+tags: [alphabet, reference]
+category: "reference"
 draft: false
 ---
 

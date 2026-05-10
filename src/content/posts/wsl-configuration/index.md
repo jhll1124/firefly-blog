@@ -1,7 +1,7 @@
 ---
 title: WSL 配置
 published: 2025-11-16
-updated: 2026-04-18
+updated: 2026-05-10
 description: "WSL 配置"
 image: "./OIP.webp"
 tags: [desktop, linux, 环境配置]
@@ -29,6 +29,66 @@ pacman -S zsh
 chsh -s /usr/bin/zsh
 pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop vim node npm pnpm binwalk tldr tree asar
 ```
+
+---
+
+# Docker Desktop
+
+Docker Desktop 可以与 WSL 2 深度集成，提供原生的容器开发体验。
+
+## 安装配置
+
+1. 下载并安装 [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
+
+2. 启动 Docker Desktop，进入 **Settings** → **Resources** → **WSL Integration**
+
+3. 启用以下选项：
+   - ✅ Enable integration with my default WSL distro
+   - ✅ 选择你想要集成的 WSL 发行版（如 Arch）
+
+4. 应用设置并重启 Docker Desktop
+
+## Docker Hub 官方服务地址
+
+| 用途              | 地址                               |
+| ----------------- | ---------------------------------- |
+| Registry API      | `registry-1.docker.io`             |
+| Auth 服务         | `auth.docker.io`                   |
+| Layer 下载（CDN） | `production.cloudflare.docker.com` |
+| 备用 S3 源        | `*.s3.amazonaws.com`               |
+
+> 官方的 CDN 节点是 `production.cloudflare.docker.com`，走的是 Cloudflare 的 CDN。
+
+## 配置容器
+
+### Uptime Kuma 监控服务
+
+```bash
+docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:2
+```
+
+### Cloudflare Tunnel
+
+```bash
+docker run -d --restart=always cloudflare/cloudflared:latest tunnel --no-autoupdate run --token <your-token>
+```
+
+## Docker 网络管理
+
+创建自定义网络：
+
+```bash
+docker network create my-net
+```
+
+将容器连接到网络（容器间可通过容器名互相访问）：
+
+```bash
+docker network connect my-net uptime-kuma
+docker network connect my-net <container-name>
+```
+
+连接后，容器可以通过容器名作为主机名互相通信，例如在 `uptime-kuma` 中可以直接访问 `http://<container-name>:port`。
 
 ---
 
@@ -85,7 +145,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 ## 插件
 
 ```zsh
-plugins=( 
+plugins=(
     git
     zsh-syntax-highlighting
     zsh-autosuggestions

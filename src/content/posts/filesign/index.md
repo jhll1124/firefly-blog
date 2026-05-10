@@ -1,11 +1,11 @@
 ---
-title: 文件头 hex 字节表
+title: 文件头 Hex 字节表
 published: 2025-11-22
-updated: 2025-11-23
-description: "文件头 hex 字节表、文件头字节码信息、File Signatures、file magic numbers"
+updated: 2026-05-10
+description: "常见文件格式的文件头字节码信息速查表(File Signatures / Magic Numbers)"
 image: ""
-tags: [file, codec, 文件头]
-category: "misc"
+tags: [file, codec, reference, hex, 文件头]
+category: "reference"
 draft: false
 ---
 
