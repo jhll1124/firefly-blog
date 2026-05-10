@@ -665,6 +665,14 @@ DX11 下帧生成不可用，可以用 NVIDIA App 的 Smooth Motion（现在显�
 &lt;li&gt;开启：R通道先溢出变白，G/B还没到，结果高光边缘会出现色相偏移的过渡，更像真实相机/胶片的过曝表现&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hue Processor (色相保护)&lt;/strong&gt;&lt;br /&gt;
+避免高饱和颜色在压缩亮度时出现色相偏移的问题。推荐选择 &lt;code&gt;ICtCp&lt;/code&gt;。
+&lt;ul&gt;
+&lt;li&gt;OKLab：现代方案，感知均匀性好，计算轻&lt;/li&gt;
+&lt;li&gt;ICtCp：Dolby 提出的，HDR 场景下理论上更准，但实际差异小&lt;/li&gt;
+&lt;li&gt;Darktable UCS：从摄影后期软件来的，针对高饱和色彩有优化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Color Grading (调色)&lt;/h2&gt;
 &lt;p&gt;调色参数，根据自己主观审美调整。&lt;/p&gt;
@@ -6472,164 +6480,10 @@ public:
 &lt;li&gt;✅ 图的 DFS/BFS 遍历 → 数据结构（基本访问）&lt;/li&gt;
 &lt;li&gt;❌ Dijkstra 最短路径 → 算法课&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded></item><item><title>Linux 桌面版配置</title><link>https://blog.cialo.site/posts/linux%E6%A1%8C%E9%9D%A2%E7%89%88%E9%85%8D%E7%BD%AE/</link><guid isPermaLink="true">https://blog.cialo.site/posts/linux%E6%A1%8C%E9%9D%A2%E7%89%88%E9%85%8D%E7%BD%AE/</guid><description>本页记录 Arch Linux 安装后的系统设置，尤其是 grub。</description><pubDate>Fri, 16 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;grub 设置&lt;/h1&gt;
-&lt;p&gt;:::caution
-双系统环境下请确保关闭 Windows 快速启动功能，避免文件系统冲突。
-:::&lt;/p&gt;
-&lt;p&gt;配置文件位置：&lt;code&gt;/etc/default/grub&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;:::important
-配置文件更改后需执行 &lt;code&gt;sudo update-grub&lt;/code&gt; 来重建 grub 应用更改。
-:::&lt;/p&gt;
-&lt;h2&gt;默认启动项&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_DEFAULT=saved
-GRUB_SAVEDEFAULT=true
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;用于指定默认启动的菜单项。其取值支持以下几种形式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数字索引&lt;/strong&gt;：从 0 开始计数，表示启动菜单中的第 N 项。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;菜单标题字符串&lt;/strong&gt;：使用与菜单中显示完全一致的标题文本进行匹配。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;saved&lt;/code&gt;&lt;/strong&gt;：配合 &lt;code&gt;GRUB_SAVEDEFAULT=true&lt;/code&gt; 使用，GRUB 会把你上次选择的菜单项写入 &lt;code&gt;/boot/grub/grubenv&lt;/code&gt;，表示默认启动上一次成功启动的条目。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当使用数字索引时，实际对应的启动项取决于当前生成的 GRUB 菜单结构。&lt;br /&gt;
-若存在子菜单，可使用 &lt;code&gt;&quot;主菜单&amp;gt;子菜单&quot;&lt;/code&gt; 的层级形式进行精确指定。&lt;br /&gt;
-该配置适用于固定或可预期的启动目标场景。若系统内核或菜单结构频繁变化，应注意索引方式可能因顺序调整而产生偏移。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;启动菜单与倒计时&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_TIMEOUT_STYLE=menu
-GRUB_TIMEOUT=1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;menu&lt;/code&gt;：始终显示菜单&lt;/li&gt;
-&lt;li&gt;秒数：在可见前提下尽量缩短等待时间&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;相比 &lt;code&gt;hidden&lt;/code&gt;，这种方式在多系统或调试内核时更安全，不会因为误判按键时机而错过菜单。&lt;/p&gt;
-&lt;h2&gt;内核启动参数&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT=&apos;udev.log_priority=3&apos;
-GRUB_CMDLINE_LINUX=&quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;刻意&lt;strong&gt;不使用&lt;/strong&gt; &lt;code&gt;quiet&lt;/code&gt; / &lt;code&gt;splash&lt;/code&gt;，使启动过程可见，方便定位卡顿或硬件初始化问题&lt;/p&gt;
-&lt;h2&gt;主题设置&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_THEME=&quot;/usr/share/grub/themes/Cerydra_cn/theme.txt&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;使用自定义主题 &lt;code&gt;Cerydra_cn&lt;/code&gt;，主题本身不影响启动逻辑，只影响展示层。&lt;/p&gt;
-&lt;h2&gt;发行版标识&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_DISTRIBUTOR=&apos;Manjaro&apos;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;用于生成菜单项标题，对功能无影响，仅影响显示文本。&lt;/p&gt;
-&lt;h2&gt;分区表支持&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_PRELOAD_MODULES=&quot;part_gpt part_msdos&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同时预加载 GPT 与 MBR 模块，避免异常情况。这是一个&lt;strong&gt;低成本但高稳定性&lt;/strong&gt;的设置。&lt;/p&gt;
-&lt;h2&gt;图形模式&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_GFXMODE=auto
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;由 GRUB 自动选择分辨率。&lt;/p&gt;
-&lt;h2&gt;OS 探测&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;GRUB_DISABLE_OS_PROBER=false
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;明确启用 &lt;code&gt;os-prober&lt;/code&gt;，用于自动识别 Windows 和 Linux 发行版。在多系统环境中，这是&lt;strong&gt;必须开启&lt;/strong&gt;的选项。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;基础软件安装&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;sudo pacman -S btop gdb pypy pypy3 audacious wine steam gedit mongohud neofetch yay microsoft-edge clash-verge base-devel git
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h1&gt;GNOME 扩展（Gnome Extensions）&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Dash to Dock&lt;/strong&gt; — &lt;em&gt;by michele_g&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;提供独立 Dock，用于应用启动与窗口切换。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Dash to Panel&lt;/strong&gt; — &lt;em&gt;by charlesg99&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;将 Dash 合并进顶栏，形成传统任务栏布局，与 Dock 类方案二选一使用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Clipboard History&lt;/strong&gt; — &lt;em&gt;by SUPERCILEX&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;剪贴板历史管理，用于保存并快速访问复制内容。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lockscreen Extension&lt;/strong&gt; — &lt;em&gt;by PRATAP PANABAKA&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;用于定制 GNOME 锁屏界面的显示与交互。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Vitals&lt;/strong&gt; — &lt;em&gt;by corecoding&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;在顶栏显示系统硬件与资源状态信息，如温度、负载和内存占用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;系统级扩展&lt;/h2&gt;
-&lt;p&gt;:::tip
-系统级扩展通常为预装扩展，位于 &lt;code&gt;/usr/share/gnome-shell/extensions/&lt;/code&gt;&lt;br /&gt;
-用户级扩展几乎一定是自己装的，位于 &lt;code&gt;~/.local/share/gnome-shell/extensions/&lt;/code&gt;&lt;br /&gt;
-预装扩展为系统或桌面环境自带，不同 GNOME 版本、不同发行版或不同安装方式下，预装扩展列表可能存在差异。
-:::&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AppIndicator and KStatusNotifierItem Support — &lt;em&gt;by 3v1n0&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Apps Menu — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;ArcMenu — &lt;em&gt;by andrew_z&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Auto Move Windows — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Forge — &lt;em&gt;by forge-ext&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Gnome 4x UI Improvements — &lt;em&gt;by AXP&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;GSConnect — &lt;em&gt;by dlandau&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Gtk4 Desktop Icons NG (DING) — &lt;em&gt;by smedius&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Launch New Instance — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Legacy (GTK3) Theme Scheme Auto Switcher — &lt;em&gt;by mukul29&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Light Style — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Native Window Placement — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Pamac Updates Indicator — &lt;em&gt;by Pamac&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Places Status Indicator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Removable Drive Menu — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Screenshot Window Sizer — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Space Bar — &lt;em&gt;by luchrioh&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Status Icons — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;System Monitor — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;User Themes — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Window List — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Window Navigator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Workspace Indicator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;X11 Gestures — &lt;em&gt;by JoseExposito&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;× 可能无法使用的功能&lt;/h2&gt;
-&lt;p&gt;:::warning
-GNOME 功能性缩放（Functional Scaling）可能无法工作：
-::github{repo=&quot;puxplaying/mutter-x11-scaling&quot;}
-:::&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;关闭自动更新&lt;/h1&gt;
-&lt;p&gt;在应用市场 - 首选项中关闭&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;Fish Shell 与 Oh-My-Fish&lt;/h1&gt;
-&lt;h2&gt;安装 Oh My Fish&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;curl https://raw.githubusvercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;自定义主题&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;cd ~/.local/share/omf/themes/
-git clone https://github.com/jhll1124/omf-theme ~/.local/share/omf/themes/omf-theme
-omf theme omf-theme
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h1&gt;证书（Certificates）&lt;/h1&gt;
-&lt;p&gt;尽量不要更改系统证书，这里选择在浏览器设置里添加信任证书。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;字体目录&lt;/h1&gt;
-&lt;p&gt;系统字体路径：&lt;code&gt;/usr/share/fonts/&lt;/code&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;kawaii-gcc 语言包&lt;/h1&gt;
-&lt;p&gt;::github{repo=&quot;Bill-Haku/kawaii-gcc&quot;}&lt;/p&gt;
-&lt;p&gt;下载 &lt;a href=&quot;https://github.com/Bill-Haku/kawaii-gcc/releases/latest/&quot;&gt;zh-kawaii.mo&lt;/a&gt; 文件&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;https://r2.cialo.site/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;重命名为 &lt;code&gt;gcc-14.mo&lt;/code&gt; 后放到 &lt;code&gt;/usr/share/locale/zh_CN/LC_MESSAGES/&lt;/code&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h1&gt;默认文件管理器绑定&lt;/h1&gt;
-&lt;p&gt;将 Nautilus 设置为默认目录打开方式：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;xdg-mime default org.gnome.Nautilus.desktop inode/directory
-&lt;/code&gt;&lt;/pre&gt;
 </content:encoded></item><item><title>Windows 注册表的一些个性化配置</title><link>https://blog.cialo.site/posts/reg/</link><guid isPermaLink="true">https://blog.cialo.site/posts/reg/</guid><description>这篇文章用于完整记录并解释我在自己电脑上进行的一些 Windows 注册表自定义个性化配置</description><pubDate>Fri, 16 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;:::note
 本文不鼓励盲目照搬，只作为&lt;strong&gt;思路展示与自用记录&lt;/strong&gt;。如若照抄后果自负。
 :::&lt;/p&gt;
-&lt;h1&gt;DLSS 开发者选项 OSD&lt;/h1&gt;
+&lt;h1&gt;DLSS Indicator OSD&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&quot;osd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -6659,7 +6513,7 @@ omf theme omf-theme
 &lt;hr /&gt;
 &lt;h1&gt;硬件 FriendlyName 自定义&lt;/h1&gt;
 &lt;p&gt;:::warning
-此修改位于 &lt;code&gt;Enum&lt;/code&gt; 分支，系统可能在重装驱动或硬件重新枚举时覆盖。
+此修改位于 &lt;code&gt;Enum&lt;/code&gt; 分支，系统一般会在重装驱动或硬件重新枚举时覆盖。
 :::&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\PCI\VEN_10DE&amp;amp;DEV_28E0&amp;amp;SUBSYS_35581043&amp;amp;REV_A1\4&amp;amp;9a8f73c&amp;amp;0&amp;amp;0008]
 &quot;FriendlyName&quot;=&quot;NVIDIA RTX PRO 6000 Blackwell Workstation Edition&quot;
@@ -6800,6 +6654,181 @@ Linux / Windows 多系统必须设置，避免时间冲突，也可将 Linux 改
 &lt;li&gt;解除 WebDAV 默认 50MB 限制&lt;/li&gt;
 &lt;li&gt;对网络挂载、远程文件操作更友好&lt;/li&gt;
 &lt;/ul&gt;
+</content:encoded></item><item><title>Linux 桌面版配置</title><link>https://blog.cialo.site/posts/linux%E6%A1%8C%E9%9D%A2%E7%89%88%E9%85%8D%E7%BD%AE/</link><guid isPermaLink="true">https://blog.cialo.site/posts/linux%E6%A1%8C%E9%9D%A2%E7%89%88%E9%85%8D%E7%BD%AE/</guid><description>本页记录 Arch Linux 安装后的系统设置，尤其是 grub。</description><pubDate>Fri, 16 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;grub 设置&lt;/h1&gt;
+&lt;p&gt;:::caution
+双系统环境下请确保关闭 Windows 快速启动功能，避免文件系统冲突。
+:::&lt;/p&gt;
+&lt;p&gt;配置文件位置：&lt;code&gt;/etc/default/grub&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;:::important
+配置文件更改后需执行 &lt;code&gt;sudo update-grub&lt;/code&gt; 来重建 grub 应用更改。
+:::&lt;/p&gt;
+&lt;h2&gt;默认启动项&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用于指定默认启动的菜单项。其取值支持以下几种形式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数字索引&lt;/strong&gt;：从 0 开始计数，表示启动菜单中的第 N 项。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;菜单标题字符串&lt;/strong&gt;：使用与菜单中显示完全一致的标题文本进行匹配。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;saved&lt;/code&gt;&lt;/strong&gt;：配合 &lt;code&gt;GRUB_SAVEDEFAULT=true&lt;/code&gt; 使用，GRUB 会把你上次选择的菜单项写入 &lt;code&gt;/boot/grub/grubenv&lt;/code&gt;，表示默认启动上一次成功启动的条目。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当使用数字索引时，实际对应的启动项取决于当前生成的 GRUB 菜单结构。&lt;br /&gt;
+若存在子菜单，可使用 &lt;code&gt;&quot;主菜单&amp;gt;子菜单&quot;&lt;/code&gt; 的层级形式进行精确指定。&lt;br /&gt;
+该配置适用于固定或可预期的启动目标场景。若系统内核或菜单结构频繁变化，应注意索引方式可能因顺序调整而产生偏移。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;启动菜单与倒计时&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;menu&lt;/code&gt;：始终显示菜单&lt;/li&gt;
+&lt;li&gt;秒数：在可见前提下尽量缩短等待时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;相比 &lt;code&gt;hidden&lt;/code&gt;，这种方式在多系统或调试内核时更安全，不会因为误判按键时机而错过菜单。&lt;/p&gt;
+&lt;h2&gt;内核启动参数&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT=&apos;udev.log_priority=3&apos;
+GRUB_CMDLINE_LINUX=&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;刻意&lt;strong&gt;不使用&lt;/strong&gt; &lt;code&gt;quiet&lt;/code&gt; / &lt;code&gt;splash&lt;/code&gt;，使启动过程可见，方便定位卡顿或硬件初始化问题&lt;/p&gt;
+&lt;h2&gt;主题设置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_THEME=&quot;/usr/share/grub/themes/Cerydra_cn/theme.txt&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用自定义主题 &lt;code&gt;Cerydra_cn&lt;/code&gt;，主题本身不影响启动逻辑，只影响展示层。&lt;/p&gt;
+&lt;h2&gt;发行版标识&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_DISTRIBUTOR=&apos;Manjaro&apos;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用于生成菜单项标题，对功能无影响，仅影响显示文本。&lt;/p&gt;
+&lt;h2&gt;分区表支持&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_PRELOAD_MODULES=&quot;part_gpt part_msdos&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同时预加载 GPT 与 MBR 模块，避免异常情况。这是一个&lt;strong&gt;低成本但高稳定性&lt;/strong&gt;的设置。&lt;/p&gt;
+&lt;h2&gt;图形模式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_GFXMODE=auto
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;由 GRUB 自动选择分辨率。&lt;/p&gt;
+&lt;h2&gt;OS 探测&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_DISABLE_OS_PROBER=false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;明确启用 &lt;code&gt;os-prober&lt;/code&gt;，用于自动识别 Windows 和 Linux 发行版。在多系统环境中，这是&lt;strong&gt;必须开启&lt;/strong&gt;的选项。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;基础软件安装&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -S btop gdb pypy pypy3 audacious wine steam gedit mongohud neofetch yay microsoft-edge clash-verge base-devel git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h1&gt;用户密码管理&lt;/h1&gt;
+&lt;p&gt;强制修改用户密码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &quot;usr:a&quot; | sudo chpasswd -c MD5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;该命令将用户 &lt;code&gt;usr&lt;/code&gt; 的密码设置为 &lt;code&gt;a&lt;/code&gt;，使用 MD5 加密方式。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Zsh 配置&lt;/h1&gt;
+&lt;h2&gt;安装 Zsh 和 Oh My Zsh&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# 安装 zsh
+sudo pacman -S zsh
+
+# 将 zsh 设置为默认 shell
+chsh -s /bin/zsh
+
+# 安装 Oh My Zsh
+sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;推荐插件&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/romkatv/powerlevel10k&quot;&gt;p10k&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git&quot;&gt;git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zsh-users/zsh-syntax-highlighting&quot;&gt;zsh-syntax-highlighting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zsh-users/zsh-autosuggestions&quot;&gt;zsh-autosuggestions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zsh-users/zsh-history-substring-search&quot;&gt;zsh-history-substring-search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Aloxaf/fzf-tab&quot;&gt;fzf-tab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;应用配置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cp /path/to/zshrc ~/.zshrc
+source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h1&gt;GNOME 扩展（Gnome Extensions）&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dash to Dock&lt;/strong&gt; — &lt;em&gt;by michele_g&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;提供独立 Dock，用于应用启动与窗口切换。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dash to Panel&lt;/strong&gt; — &lt;em&gt;by charlesg99&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;将 Dash 合并进顶栏，形成传统任务栏布局，与 Dock 类方案二选一使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clipboard History&lt;/strong&gt; — &lt;em&gt;by SUPERCILEX&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;剪贴板历史管理，用于保存并快速访问复制内容。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lockscreen Extension&lt;/strong&gt; — &lt;em&gt;by PRATAP PANABAKA&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;用于定制 GNOME 锁屏界面的显示与交互。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vitals&lt;/strong&gt; — &lt;em&gt;by corecoding&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在顶栏显示系统硬件与资源状态信息，如温度、负载和内存占用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;系统级扩展&lt;/h2&gt;
+&lt;p&gt;:::tip
+系统级扩展通常为预装扩展，位于 &lt;code&gt;/usr/share/gnome-shell/extensions/&lt;/code&gt;&lt;br /&gt;
+用户级扩展几乎一定是自己装的，位于 &lt;code&gt;~/.local/share/gnome-shell/extensions/&lt;/code&gt;&lt;br /&gt;
+预装扩展为系统或桌面环境自带，不同 GNOME 版本、不同发行版或不同安装方式下，预装扩展列表可能存在差异。
+:::&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AppIndicator and KStatusNotifierItem Support — &lt;em&gt;by 3v1n0&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Apps Menu — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;ArcMenu — &lt;em&gt;by andrew_z&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Auto Move Windows — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Forge — &lt;em&gt;by forge-ext&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Gnome 4x UI Improvements — &lt;em&gt;by AXP&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;GSConnect — &lt;em&gt;by dlandau&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Gtk4 Desktop Icons NG (DING) — &lt;em&gt;by smedius&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Launch New Instance — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Legacy (GTK3) Theme Scheme Auto Switcher — &lt;em&gt;by mukul29&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Light Style — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Native Window Placement — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Pamac Updates Indicator — &lt;em&gt;by Pamac&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Places Status Indicator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Removable Drive Menu — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Screenshot Window Sizer — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Space Bar — &lt;em&gt;by luchrioh&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Status Icons — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;System Monitor — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;User Themes — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Window List — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Window Navigator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Workspace Indicator — &lt;em&gt;by fmuellner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;X11 Gestures — &lt;em&gt;by JoseExposito&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;× 可能无法使用的功能&lt;/h2&gt;
+&lt;p&gt;:::warning
+GNOME 功能性缩放（Functional Scaling）可能无法工作：
+::github{repo=&quot;puxplaying/mutter-x11-scaling&quot;}
+:::&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;关闭自动更新&lt;/h1&gt;
+&lt;p&gt;在应用市场 - 首选项中关闭&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;证书（Certificates）&lt;/h1&gt;
+&lt;p&gt;尽量不要更改系统证书，这里选择在浏览器设置里添加信任证书。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;字体目录&lt;/h1&gt;
+&lt;p&gt;系统字体路径：&lt;code&gt;/usr/share/fonts/&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;kawaii-gcc 语言包&lt;/h1&gt;
+&lt;p&gt;::github{repo=&quot;Bill-Haku/kawaii-gcc&quot;}&lt;/p&gt;
+&lt;p&gt;下载 &lt;a href=&quot;https://github.com/Bill-Haku/kawaii-gcc/releases/latest/&quot;&gt;zh-kawaii.mo&lt;/a&gt; 文件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;v0.6.0 缓存：&lt;a href=&quot;https://r2.cialo.site/zh-kawaii.mo&quot;&gt;zh-kawaii.mo&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重命名为 &lt;code&gt;gcc-14.mo&lt;/code&gt; 后放到 &lt;code&gt;/usr/share/locale/zh_CN/LC_MESSAGES/&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;默认文件管理器绑定&lt;/h1&gt;
+&lt;p&gt;将 Nautilus 设置为默认目录打开方式：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;xdg-mime default org.gnome.Nautilus.desktop inode/directory
+&lt;/code&gt;&lt;/pre&gt;
 </content:encoded></item><item><title>希腊字母表</title><link>https://blog.cialo.site/posts/alphabet/</link><guid isPermaLink="true">https://blog.cialo.site/posts/alphabet/</guid><description>这里主要展示的是发音，其他内容参见维基百科</description><pubDate>Sun, 11 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -10305,7 +10334,7 @@ cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 &lt;pre&gt;&lt;code&gt;pacman -Syyu
 pacman -S zsh
 chsh -s /usr/bin/zsh
-pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop vim node npm pnpm binwalk tldr tree
+pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop vim node npm pnpm binwalk tldr tree asar
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
 &lt;h1&gt;编辑 locale 配置（取消注释 zh_CN.UTF-8）&lt;/h1&gt;
@@ -10669,49 +10698,49 @@ sudo apt install caddy
 以下为完整 Caddy 配置，仅供参考，请勿全部照搬，否则后果自负。&lt;br /&gt;
 :::&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(errors) {
-	handle_errors {
-		root /server/error
-		rewrite /{http.error.status_code}.html
-		file_server
-	}
+    handle_errors {
+        root /server/error
+        rewrite /{http.error.status_code}.html
+        file_server
+    }
 }
 
 cialo.site {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	root /server/data
-	import errors
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    root /server/data
+    import errors
     encode gzip
     handle /pic/* {
-		reverse_proxy http://127.0.0.1:5737
-	}
-	handle /img/* {
-		file_server browse
-	}
-	handle /html/* {
-		file_server browse
-	}
-	handle /file/* {
-		file_server browse
-	}
-	handle /* {
-		error 403
-	}
+        reverse_proxy http://127.0.0.1:5737
+    }
+    handle /img/* {
+        file_server browse
+    }
+    handle /html/* {
+        file_server browse
+    }
+    handle /file/* {
+        file_server browse
+    }
+    handle /* {
+        error 403
+    }
 }
 
 https://cialo.site:52011 {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	import errors
-	reverse_proxy https://127.0.0.1:5201 {
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    import errors
+    reverse_proxy https://127.0.0.1:5201 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
 }
 
 https://cialo.site:30721 {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	import errors
-	reverse_proxy http://172.17.0.1:80
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    import errors
+    reverse_proxy http://172.17.0.1:80
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
