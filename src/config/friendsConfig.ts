@@ -31,6 +31,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 20,
 		enabled: true,
 	},
+	{
+		title: "UNi Blog",
+		imgurl: "https://www.unixs.cn/images/logo.png",
+		desc: "不知道",
+		siteurl: "https://www.unixs.cn",
+		tags: ["Blog"],
+		weight: 20,
+		enabled: true,
+	},
 ];
 
 // 获取启用的友链并按权重排序
