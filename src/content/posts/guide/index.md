@@ -58,6 +58,7 @@ slug: hello-world
 ```
 
 文件：`src/content/posts/my-first-blog-post.md`
+
 URL：`/posts/hello-world`
 
 ### Slug 使用建议
