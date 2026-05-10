@@ -123,7 +123,7 @@ echo "usr:a" | sudo chpasswd -c MD5
 
 # Zsh 配置
 
-## 安装 Zsh 和 Oh My Zsh
+## 安装 Zsh
 
 ```bash
 # 安装 zsh
@@ -131,23 +131,42 @@ sudo pacman -S zsh
 
 # 将 zsh 设置为默认 shell
 chsh -s /bin/zsh
+```
 
-# 安装 Oh My Zsh
+## 安装 Oh My Zsh
+
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+## 安装 powerlevel10k
+
+```zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+```
+
+打开 `~/.zshrc`，找到设置 `ZSH_THEME` 的行，并将其值更改为 `"powerlevel10k/powerlevel10k"`。
+
 ## 推荐插件
 
-- [p10k](https://github.com/romkatv/powerlevel10k)
-- [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 
+```zsh
+plugins=(
+    git
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-history-substring-search
+    fzf-tab
+)
+```
+
 ## 应用配置
 
-```bash
+```zsh
 cp /path/to/zshrc ~/.zshrc
 source ~/.zshrc
 ```
