@@ -109,6 +109,51 @@ sudo pacman -S btop gdb pypy pypy3 audacious wine steam gedit mongohud neofetch 
 
 ---
 
+# 用户密码管理
+
+强制修改用户密码：
+
+```bash
+echo "usr:a" | sudo chpasswd -c MD5
+```
+
+该命令将用户 `usr` 的密码设置为 `a`，使用 MD5 加密方式。
+
+---
+
+# Zsh 配置
+
+## 安装 Zsh 和 Oh My Zsh
+
+```bash
+# 安装 zsh
+sudo pacman -S zsh
+
+# 将 zsh 设置为默认 shell
+chsh -s /bin/zsh
+
+# 安装 Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## 推荐插件
+
+- [p10k](https://github.com/romkatv/powerlevel10k)
+- [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+
+## 应用配置
+
+```bash
+cp /path/to/zshrc ~/.zshrc
+source ~/.zshrc
+```
+
+---
+
 # GNOME 扩展（Gnome Extensions）
 
 - **Dash to Dock** — _by michele_g_
@@ -176,24 +221,6 @@ GNOME 功能性缩放（Functional Scaling）可能无法工作：
 # 关闭自动更新
 
 在应用市场 - 首选项中关闭
-
----
-
-# Fish Shell 与 Oh-My-Fish
-
-## 安装 Oh My Fish
-
-```bash
-curl https://raw.githubusvercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-```
-
-## 自定义主题
-
-```bash
-cd ~/.local/share/omf/themes/
-git clone https://github.com/jhll1124/omf-theme ~/.local/share/omf/themes/omf-theme
-omf theme omf-theme
-```
 
 ---
 

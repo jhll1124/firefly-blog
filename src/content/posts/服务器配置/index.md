@@ -333,49 +333,49 @@ sudo caddy add-package github.com/caddy-dns/cloudflare
 
 ```Caddy
 (errors) {
-	handle_errors {
-		root /server/error
-		rewrite /{http.error.status_code}.html
-		file_server
-	}
+    handle_errors {
+        root /server/error
+        rewrite /{http.error.status_code}.html
+        file_server
+    }
 }
 
 cialo.site {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	root /server/data
-	import errors
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    root /server/data
+    import errors
     encode gzip
     handle /pic/* {
-		reverse_proxy http://127.0.0.1:5737
-	}
-	handle /img/* {
-		file_server browse
-	}
-	handle /html/* {
-		file_server browse
-	}
-	handle /file/* {
-		file_server browse
-	}
-	handle /* {
-		error 403
-	}
+        reverse_proxy http://127.0.0.1:5737
+    }
+    handle /img/* {
+        file_server browse
+    }
+    handle /html/* {
+        file_server browse
+    }
+    handle /file/* {
+        file_server browse
+    }
+    handle /* {
+        error 403
+    }
 }
 
 https://cialo.site:52011 {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	import errors
-	reverse_proxy https://127.0.0.1:5201 {
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    import errors
+    reverse_proxy https://127.0.0.1:5201 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
 }
 
 https://cialo.site:30721 {
-	tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
-	import errors
-	reverse_proxy http://172.17.0.1:80
+    tls /server/cert/cialo.site_bundle.crt /server/cert/cialo.site.key
+    import errors
+    reverse_proxy http://172.17.0.1:80
 }
 ```
 

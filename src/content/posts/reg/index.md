@@ -13,7 +13,7 @@ draft: false
 本文不鼓励盲目照搬，只作为**思路展示与自用记录**。如若照抄后果自负。
 :::
 
-# DLSS 开发者选项 OSD
+# DLSS Indicator OSD
 
 ![](osd.png)
 
@@ -33,7 +33,7 @@ draft: false
 # 硬件 FriendlyName 自定义
 
 :::warning
-此修改位于 `Enum` 分支，系统可能在重装驱动或硬件重新枚举时覆盖。
+此修改位于 `Enum` 分支，系统一般会在重装驱动或硬件重新枚举时覆盖。
 :::
 
 ```reg

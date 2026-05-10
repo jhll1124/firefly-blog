@@ -27,7 +27,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 pacman -Syyu
 pacman -S zsh
 chsh -s /usr/bin/zsh
-pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop vim node npm pnpm binwalk tldr tree
+pacman -S neofetch gcc nano gdb git which nmap inetutils llvm sqlmap mkcert btop vim node npm pnpm binwalk tldr tree asar
 ```
 
 ---
