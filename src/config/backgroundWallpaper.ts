@@ -47,6 +47,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			"assets/images/DesktopWallpaper/d4.avif",
 			"assets/images/DesktopWallpaper/d5.avif",
 			"assets/images/DesktopWallpaper/d6.avif",
+			"assets/images/138948765_p0.png",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
@@ -81,6 +82,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				"Upon Lighted Fyrefly, I Soon Gaze",
 				"From Undreamt Night, I Thence Shine",
 				"In Finalized Morrow, I Full Bloom",
+				"The departure of early spring that means the curtain call of elannesiana.",
+				"Upon Lighted Fyrefly, I Soon Gaze",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
@@ -90,17 +93,17 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				// 打字机关闭 → 每次刷新随机显示一条副标题
 				enable: true,
 				// 打字速度（毫秒）
-				speed: 100,
+				speed: 50,
 				// 删除速度（毫秒）
-				deleteSpeed: 50,
+				deleteSpeed: 20,
 				// 完全显示后的暂停时间（毫秒）
-				pauseTime: 2000,
+				pauseTime: 5000,
 			},
 		},
 		// 导航栏配置
 		navbar: {
 			// 导航栏透明模式："semi" 半透明，"full" 完全透明，"semifull" 动态透明
-			transparentMode: "semi",
+			transparentMode: "semifull",
 			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
 			enableBlur: true,
 			// 毛玻璃模糊度

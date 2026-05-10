@@ -18,33 +18,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	// 支持自定义导航栏链接,并且支持多级菜单
-	links.push({
-		name: "链接",
-		url: "/links/",
-		icon: "material-symbols:link",
-		children: [
-			{
-				name: "网站状态监控",
-				url: "https://stat.cialo.site/status/",
-				external: true,
-				icon: "fa7-brands:web-awesome",
-			},
-			{
-				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-			{
-				name: "秋星曜野，桂月垂光",
-				url: "https://ba.cialo.site",
-				external: true,
-				icon: "fa7-brands:bilibili",
-			},
-		],
-	});
-	
 	// 根据配置决定是否添加友链，在siteConfig关闭pages.friends时导航栏不显示友链
 	if (siteConfig.pages.friends) {
 		links.push(LinkPreset.Friends);
@@ -92,22 +65,16 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		// 子菜单
 		children: [
 			{
-				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
+				name: "网站状态监控",
+				url: "https://stat.cialo.site/status/",
 				external: true,
-				icon: "fa7-brands:github",
+				icon: "material-symbols:cloud",
 			},
 			{
-				name: "Gitee",
-				url: "https://gitee.com/CuteLeaf/Firefly",
+				name: "秋星曜野，桂月垂光",
+				url: "https://ba.cialo.site",
 				external: true,
-				icon: "fa7-brands:gitee",
-			},
-			{
-				name: "QQ交流群",
-				url: "https://qm.qq.com/q/ZGsFa8qX2G",
-				external: true,
-				icon: "fa7-brands:qq",
+				icon: "fa7-brands:bilibili",
 			},
 		],
 	});
