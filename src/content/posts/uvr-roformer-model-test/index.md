@@ -1,7 +1,7 @@
 ---
 title: UVR 5.6.1 beta Roformer 模型测试
 published: 2025-11-22
-updated: 2025-11-22
+updated: 2026-05-11
 description: "UVR 5.6.1 beta Roformer 模型测试"
 image: "./splash.png"
 tags: [uvr, music, inst, vocal, AI, 去人声, 音乐, 伴奏]
@@ -54,6 +54,6 @@ draft: false
 
 ![Adobe_Audition_Adobe_Audition_1763742564_1821x1242](./Adobe_Audition_Adobe_Audition_1763742564_1821x1242.png)
 
-![Adobe_Audition_Adobe_Audition_1763742575_1821x1242](./Adobe_Audition_Adobe_Audition_1763742575_1821x1242.png)
+![Adobe_Audition_Adobe_Audition_1763742571_1821x1242](./Adobe_Audition_Adobe_Audition_1763742571_1821x1242.png)
 
 ![Adobe_Audition_Adobe_Audition_1763742568_1821x1242](./Adobe_Audition_Adobe_Audition_1763742568_1821x1242.png)

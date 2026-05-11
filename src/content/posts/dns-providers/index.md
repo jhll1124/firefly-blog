@@ -1,6 +1,7 @@
 ---
 title: DNS 提供商汇总
 published: 2026-01-04
+updated: 2026-05-11
 description: "在这篇文章中，我们推荐一份受信任的 DNS 供应商名单。 "
 image: ""
 tags: [dns, doh, server, provider, dot, doq, network]
@@ -108,7 +109,7 @@ DNS(Domain Name System，域名系统)是互联网的基础服务之一，它将
 
 ## CNNIC DNS
 
-中国互联网信息中心 CNNIC 提供的免费公共 DNS，同时支持 IPv4。
+中国互联网信息中心 CNNIC 提供的免费公共 DNS，目前仅支持 IPv4。
 
 **IPv4**:
 
@@ -180,7 +181,7 @@ DNS(Domain Name System，域名系统)是互联网的基础服务之一，它将
 
 **广西电信**:
 
-- 240e:9:2000:100
+- 240e:9:2000::100
 - 240e:9::100
 
 **湖南电信**:
@@ -862,7 +863,7 @@ Cloudflare DNS 是一个免费且快速的 DNS 服务，作为递归名称服务
 
 ## 大连理工大学 DNS
 
-**DNS**: 2202.118.66.6
+**DNS**: 202.118.66.6
 
 ---
 

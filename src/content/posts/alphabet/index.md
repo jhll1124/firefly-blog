@@ -1,7 +1,7 @@
 ---
 title: 希腊字母表
 published: 2026-01-11
-updated: 2026-05-10
+updated: 2026-05-11
 description: "希腊字母表及其英文名称和音标发音速查表"
 tags: [alphabet, reference]
 category: "reference"
@@ -12,7 +12,7 @@ draft: false
 | ---- | ---- | ------------ | ------- |
 | 1    | α/Α  | /ælfə/       | alpha   |
 | 2    | β/Β  | /beɪtə/      | beta    |
-| 3    | γ/Γ  | /gama/       | gamma   |
+| 3    | γ/Γ  | /ˈɡæmə/      | gamma   |
 | 4    | δ/Δ  | /deltə/      | delta   |
 | 5    | ε/Ε  | /epsɪlɒn/    | epsilon |
 | 6    | ζ/Ζ  | /ziːtə/      | zeta    |
@@ -33,6 +33,6 @@ draft: false
 | 21   | φ/Φ  | /faɪ/        | phi     |
 | 22   | χ/Χ  | /kaɪ/        | chi     |
 | 23   | ψ/Ψ  | /psaɪ/       | psi     |
-| 24   | ω/Ω  | /əʊˈmɪgə/    | omega   |
+| 24   | ω/Ω  | /ˈəʊmɪɡə/    | omega   |
 
 **这里主要展示的是发音，其他内容参见[维基百科](https://zh.wikipedia.org/wiki/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D#%E5%AD%97%E6%AF%8D%E5%90%8D%E7%A8%B1)**

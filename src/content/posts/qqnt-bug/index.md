@@ -1,16 +1,16 @@
 ---
 title: QQNT 9.9.25 版本 HTML 注入 XSS 漏洞分析
 published: 2025-11-30
-updated: 2026-05-10
+updated: 2026-05-11
 description: "本文记录了在 QQNT PC 9.9.25-42744 版本中发现的一个 HTML/JavaScript 注入漏洞。该漏洞允许通过消息内容注入 HTML 元素和 JavaScript 代码，虽然执行上下文受限，但仍可能被用于社会工程学攻击。"
 image: "./alert.png"
 tags: [qq, security, inject, 漏洞分析, cve, xss]
-category: "security"
+category: "misc"
 draft: false
 ---
 
 :::note[声明]
-本文本分内容由 AI 撰写，请注意甄别。
+本文部分内容由 AI 撰写，请注意甄别。
 :::
 
 本文记录了在 QQNT PC 9.9.25-42744 版本中发现的一个 HTML/JavaScript 注入漏洞。该漏洞允许通过消息内容注入 HTML 元素和 JavaScript 代码，虽然执行上下文受限，但仍可能被用于社会工程学攻击。
@@ -205,7 +205,7 @@ draft: false
 # 漏洞复现步骤
 
 1. 在 QQ 聊天窗口中发送上述任意 HTML 代码
-2. 消息会在在双方渲染为可交互的按钮或执行逻辑
+2. 消息会在双方渲染为可交互的按钮或执行逻辑
 
 # 披露时间线
 

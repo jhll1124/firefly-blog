@@ -1,12 +1,12 @@
 ---
 title: KMS 激活
 published: 2025-11-16
-updated: 2026-01-16
+updated: 2026-05-11
 description: "KMS Activate"
 image: "./cover.jpg"
 tags: [kms, tutorial, guide, 激活, activate]
 author: "神代綺凛"
-category: "tutorial"
+category: "windows"
 sourceLink: "https://moe.best/kms.html"
 draft: false
 ---
@@ -15,7 +15,7 @@ Head Pic: [「碎裂の音符」/「Twiska」[pixiv]](https://www.pixiv.net/art
 
 只能激活**批量版**的 Windows 和 Office，如果不是请看对应说明
 
-每次激活成功的有效期是  `180天`，之后系统每  `7天`\* 会自动联网激活续期，只要你有网而且本站的 KMS 服务器没宕
+每次激活成功的有效期是  `180天`，之后系统每  `7天`\* 会自动联网激活续期，只要你有网而且本站的 KMS 服务器没宕机
 
 \* 默认情况下自动续期间隔为 7 天，但该值可由 KMS 服务提供者自定义，本站 KMS 服务自动续期间隔为 90 天
 

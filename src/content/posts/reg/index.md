@@ -5,7 +5,7 @@ updated: 2026-04-21
 description: 这篇文章用于完整记录并解释我在自己电脑上进行的一些 Windows 注册表自定义个性化配置
 image: "./2.png"
 tags: [windows, reg]
-category: misc
+category: windows
 draft: false
 ---
 

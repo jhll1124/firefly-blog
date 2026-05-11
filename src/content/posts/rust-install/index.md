@@ -4,7 +4,7 @@ published: 2025-11-22
 description: 本文介绍在 Windows 上仅使用 GNU 工具链安装 Rust，并说明国内镜像的配置方法，以加速工具链与依赖下载。
 image: "./136883322_p0.png"
 tags: [rust, windows, dev, development, code, 编程, 环境配置, env, 开发]
-category: code
+category: windows
 draft: false
 ---
 

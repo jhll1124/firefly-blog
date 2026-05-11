@@ -1,7 +1,7 @@
 ---
 title: HDR 显示测试
 published: 2026-02-11
-updated: 2026-05-10
+updated: 2026-05-11
 description: "HDR 激发亮度测试页面，检测设备是否支持 HDR 显示"
 image: "./icc.png"
 tags: [hdr, test, display]
@@ -20,7 +20,7 @@ draft: false
 <div class="background" style="width: 100%; height: 100%;"><div class="logo"></div></div>
 <script>setTimeout(() => {document.body.classList.add("loaded");}, 1000);</script>
 
-这是一个使用icc色彩配置文件实现的png格式的的HDR图片，在支持HDR的设备上，他会显示很亮很纯正的红高亮的红色：
+这是一个使用icc色彩配置文件实现的png格式的的HDR图片，在支持HDR的设备上，他会显示很亮很纯正的高亮红色：
 
 ![](icc.png)
 

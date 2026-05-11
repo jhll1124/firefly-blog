@@ -4,7 +4,7 @@ published: 2026-02-11
 description: "VMware Workstation 忘记 TPM 加密解决方法"
 image: "./image.png"
 tags: [vm, vmware, windows, 虚拟机]
-category: "misc"
+category: "windows"
 draft: false
 ---
 
