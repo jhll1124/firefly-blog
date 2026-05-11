@@ -3,7 +3,7 @@ title: Linux 桌面版配置
 published: 2026-01-16
 updated: 2026-04-18
 description: "本页记录 Arch Linux 安装后的系统设置，尤其是 grub。"
-image: "./Arch.svg"
+image: "./Arch.png"
 tags: [desktop, grub, linux, 系统配置]
 category: "linux"
 draft: false

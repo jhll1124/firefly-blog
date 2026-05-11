@@ -8,6 +8,7 @@ tags: [hdr, mod, game, 游戏, 明日方舟：终末地, Endfield]
 category: "game"
 sourceLink: "https://chaomeng.space/posts/2026-02-06/arknights-endfield-native-hdr"
 draft: false
+pinned: true
 ---
 
 《明日方舟：终末地》原生不支持 HDR，因此需要通过插件注入的方式实现原生 HDR。这里采用 RenoDX 实现。该插件通过拦截游戏最终输出，替换原本的 SDR tone mapping，把原本从 HDR Pipeline 压成 SDR 的画面重新扩展到 HDR 显示，从而在不破坏 UI 亮度的情况下提升高光表现。

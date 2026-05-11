@@ -3,7 +3,6 @@ title: 希腊字母表
 published: 2026-01-11
 updated: 2026-05-10
 description: "希腊字母表及其英文名称和音标发音速查表"
-image: "./Greekalphabet.svg"
 tags: [alphabet, reference]
 category: "reference"
 draft: false

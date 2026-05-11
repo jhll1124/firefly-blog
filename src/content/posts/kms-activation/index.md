@@ -34,7 +34,7 @@ KMS 服务器地址：
 
 2. **以管理员身份**运行「命令提示符」或者「PowerShell」，运行以下命令
 
-```pwsh
+```powershell
 cd C:\Windows\System32
 cscript slmgr.vbs /skms kms.loli.best
 cscript slmgr.vbs /ato
@@ -61,7 +61,7 @@ cscript slmgr.vbs /xpr
 
 你可以直接在**以管理员身份**运行的「命令提示符」或「PowerShell」中直接执行此命令应用密钥，也可以在 Win 10 设置的“更新和安全-激活-更新产品密钥”中应用密钥
 
-```pwsh
+```powershell
 cd C:\Windows\System32
 cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 ```

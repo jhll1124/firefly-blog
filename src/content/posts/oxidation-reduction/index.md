@@ -2,7 +2,6 @@
 title: 氧化性顺序总表
 published: 2026-01-11
 description: "氧化性强弱顺序"
-image: "./NaF.gif"
 tags: [oxidation, reduction, reaction]
 category: "chemistry"
 draft: false
