@@ -199,4 +199,4 @@ Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发，
 
 # 🎮 游戏人生
 
-![Star Rail Info](https://sr-card.qiusyan.top/116153827?theme=auto&logo=28)
+![Star Rail Info](https://hoyocard.qhy04.com/sr/rand/215626695.png)
